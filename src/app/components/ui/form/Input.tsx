@@ -65,11 +65,6 @@ export const Input = ({
         onBlur={handleBlur}
         autoComplete="off"
       />
-      {required && error ? (
-        <small style={{color: "#6b2b2b"}}>{error}</small>
-      ) : (
-        <small>&nbsp;</small>
-      )}
     </div>
   );
 };

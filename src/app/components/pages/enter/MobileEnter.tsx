@@ -1,8 +1,12 @@
+"use client";
 import Image from "next/image";
 import LoginForm from "../../shared/enter/Login";
 import styles from "../Pages.module.css";
+import {useState} from "react";
+import RegisterForm from "../../shared/enter/RegisterForm";
 
-export default function MobileLogin() {
+export default function MobileEnter() {
+  const [isLogin, setForm] = useState(false);
   return (
     <main className={styles.mainPage}>
       <div className={styles.bkgImg}>
@@ -31,9 +35,13 @@ export default function MobileLogin() {
             fill="white"
           />
         </svg>
-        <h1>Sign In</h1>
+        <h1>{isLogin ? "Sign In" : "Sign Up"}</h1>
       </header>
-      <LoginForm />
+      {isLogin ? (
+        <LoginForm setForm={setForm} />
+      ) : (
+        <RegisterForm setForm={setForm} />
+      )}
     </main>
   );
 }

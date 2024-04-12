@@ -3,25 +3,33 @@ import {Dispatch, SetStateAction, useState} from "react";
 import {Input} from "../../ui/form/Input";
 import styles from "../Shared.module.css";
 import {Button} from "../../ui/Button";
-import Checkbox from "../../ui/form/Checbox";
 
-export default function LoginForm({
+export default function RegisterForm({
   setForm,
 }: {
   setForm: Dispatch<SetStateAction<boolean>>;
 }) {
   const [formData, setFormData] = useState({
     password: "",
+    confirm_password: "",
     email: "",
+    first_name: "",
     remember: false,
   });
 
   const handleLogIn = () => {
-    alert("Logged In");
+    alert("Regsiter In");
   };
 
   return (
     <form className={styles.formWrapper}>
+      <Input
+        label="First Name"
+        required={true}
+        name="first_name"
+        formData={formData}
+        setFormData={setFormData}
+      />
       <Input
         label="Email"
         required={true}
@@ -36,17 +44,17 @@ export default function LoginForm({
         formData={formData}
         setFormData={setFormData}
       />
-      <span> Forgot your password?</span>
-      <Checkbox
-        label={"Remember Me"}
-        name={"remember"}
+      <Input
+        label="Confirm Password"
+        required={true}
+        name="confirm_password"
         formData={formData}
         setFormData={setFormData}
       />
-      <Button text={"Sign In"} callback={handleLogIn} />
+      <Button text={"Register"} callback={handleLogIn} />
       <span>
         {" "}
-        Not a member? <span onClick={() => setForm(false)}>Sign up</span>
+        Already a member? <span onClick={() => setForm(true)}>Sign In</span>
       </span>
     </form>
   );

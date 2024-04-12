@@ -1,11 +1,9 @@
-// import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+import MobileEnter from "./components/pages/enter/MobileEnter";
+import {useWidth} from "./hooks/useWidth";
+// import styles from "./page.module.css";
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div></div>
-      <header></header>
-    </main>
-  );
+  const innerWidth = useWidth();
+  return <>{innerWidth < 720 ? <MobileEnter /> : null}</>;
 }
