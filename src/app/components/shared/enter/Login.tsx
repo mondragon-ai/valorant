@@ -31,12 +31,12 @@ export default function LoginForm({
       />
       <Input
         label="Password"
-        required={true}
+        required={false}
+        type={"password"}
         name="password"
         formData={formData}
         setFormData={setFormData}
       />
-      <span> Forgot your password?</span>
       <Checkbox
         label={"Remember Me"}
         name={"remember"}
@@ -44,10 +44,13 @@ export default function LoginForm({
         setFormData={setFormData}
       />
       <Button text={"Sign In"} callback={handleLogIn} />
-      <span>
-        {" "}
-        Not a member? <span onClick={() => setForm(false)}>Sign up</span>
-      </span>
+      <div className={styles.textBox}>
+        <span>
+          {" "}
+          Not a member? <span onClick={() => setForm(false)}>Sign up</span>
+        </span>
+        <span> Forgot your password?</span>
+      </div>
     </form>
   );
 }

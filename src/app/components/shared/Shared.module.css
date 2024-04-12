@@ -12,3 +12,15 @@
   height: auto;
   width: 100%;
 }
+
+.textBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  align-items: flex-start;
+  padding: 0rem;
+  margin: 0;
+  height: auto;
+  width: 100%;
+}

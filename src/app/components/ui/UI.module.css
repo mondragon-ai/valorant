@@ -20,18 +20,30 @@
 .labelActive {
   top: 10px;
   font-size: 10px;
-  left: 5px;
+  left: 11px;
   color: var(--main-accent);
 }
 
 .input input {
   width: 100%;
   padding: 20px 10px 5px 10px;
-  border: 1px solid var(--main-accent);
-  border-radius: 5px;
+  border: 2.5px solid var(--main-accent);
+  border-radius: 10px;
   font-size: 16px;
   background-color: var(--main-light);
   color: black;
+}
+
+.showPassword {
+  position: absolute;
+  top: 25px;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  color: var(--main-accent);
+  z-index: 5;
+  pointer-events: all;
 }
 
 /* ================================================================================ */

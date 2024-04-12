@@ -40,6 +40,7 @@ export default function RegisterForm({
       <Input
         label="Password"
         required={true}
+        type={"password"}
         name="password"
         formData={formData}
         setFormData={setFormData}
@@ -47,6 +48,7 @@ export default function RegisterForm({
       <Input
         label="Confirm Password"
         required={true}
+        type={"password"}
         name="confirm_password"
         formData={formData}
         setFormData={setFormData}
