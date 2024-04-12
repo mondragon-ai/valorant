@@ -2,4 +2,109 @@
 /* 1. Inputs                                                                        */
 /* ================================================================================ */
 .input {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.label {
+  position: absolute;
+  top: 35%;
+  left: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  color: var(--main-accent);
+}
+
+.labelActive {
+  top: 10px;
+  font-size: 10px;
+  left: 5px;
+  color: var(--main-accent);
+}
+
+.input input {
+  width: 100%;
+  padding: 20px 10px 5px 10px;
+  border: 1px solid var(--main-accent);
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: var(--main-light);
+  color: black;
+}
+
+/* ================================================================================ */
+/* 2. Button                                                                        */
+/* ================================================================================ */
+.buttonWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  align-items: center;
+  padding: 0rem;
+  margin: 0;
+  height: auto;
+}
+
+.buttonWrapper button {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 1rem 2rem;
+  /* background-color: var(--main-accent);/
+  color: var(--main-light); */
+  border-radius: 5px;
+  border: 1px solid transparent;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.btn {
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+}
+
+.btn:hover .btn-slide-show-text1 {
+  margin-left: 65px;
+}
+
+.flashSlide {
+  border: none;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  margin: 20px;
+  width: 180px;
+  height: 50px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: var(--main-accent);
+  font-family: Helvetica;
+  text-align: center;
+}
+
+.flashSlide::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: -80px;
+  height: 100px;
+  width: 70px;
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(20deg);
+}
+
+.flashSlide:hover::before {
+  left: 120%;
+  transition: all 1s ease 0s;
+}
+
+.flashSlidePurple {
+  background: rgb(62, 53, 141);
 }

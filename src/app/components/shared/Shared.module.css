@@ -1,0 +1,14 @@
+/* ================================================================================ */
+/* 1. Forms                                                                        */
+/* ================================================================================ */
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  align-items: center;
+  padding: 1rem;
+  margin: 0;
+  height: auto;
+  width: 100%;
+}
