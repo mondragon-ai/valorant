@@ -39,3 +39,132 @@
   height: auto;
   width: 100%;
 }
+
+/* ================================================================================ */
+/* 1. Dashboard                                                                     */
+/* ================================================================================ */
+.recentStatsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: auto;
+}
+
+.recentStatsContainer .fade {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  bottom: -10px;
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--background-start-rgb));
+}
+.recentStatsContainer .background {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
+
+.recentStatsContainer .background img {
+  width: 100%;
+  height: auto;
+  transform: scaleX(-1);
+  opacity: 0.2;
+}
+
+.currRank {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  position: relative;
+  align-items: center;
+  padding: 1rem;
+  margin: 0;
+  width: 100%;
+  height: auto;
+}
+
+.currRank img {
+  height: 80px;
+  width: 80px;
+}
+.currRank .rankTxt span {
+  font-weight: 300;
+  margin-bottom: 3px;
+}
+
+.currRank .rankTxt {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  margin-left: 1rem;
+  width: auto;
+  height: auto;
+}
+
+/* Recent Match                                                                   */
+/* ================================================================================ */
+.recentMatchWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  align-items: flex-start;
+  padding: 1rem;
+  margin: 0;
+  width: 100%;
+  height: auto;
+}
+
+.recentMatchWrapper span {
+  font-weight: 300;
+  margin-bottom: 3px;
+}
+
+.recentMatchContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  position: relative;
+  align-items: center;
+  padding: 5px 10px;
+  margin: 0;
+  width: 100%;
+  height: auto;
+  background-color: rgba(128, 128, 128, 0.117);
+  border-left: 3px solid green;
+}
+
+.recentMatchContainer img {
+  margin-left: 0.3rem;
+  margin-right: 0.7rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--main-accent);
+  object-fit: cover;
+}
+
+.recentMatchContainer .item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  align-items: flex-start;
+  padding: 0rem;
+  margin: 0;
+  width: 100%;
+  height: auto;
+}

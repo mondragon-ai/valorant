@@ -105,6 +105,18 @@ h1 {
   font-weight: bold;
   color: var(--main-light);
 }
+h4 {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--main-light);
+}
+h5 {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--main-light);
+}
 
 a,
 span {
