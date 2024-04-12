@@ -10,6 +10,18 @@ const nextConfig = {
         protocol: "https",
         hostname: "tiermaker.com",
       },
+      {
+        protocol: "https",
+        hostname: "*.nocookie.net",
+      },
+      {
+        protocol: "https",
+        hostname: "images.contentstack.io",
+      },
+      {
+        protocol: "https",
+        hostname: "images.contentstack.io",
+      },
     ],
   },
 };
