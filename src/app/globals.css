@@ -44,7 +44,9 @@
     --background-end-rgb: #0f1825;
 
     --main-light: #ffff;
+    --main-grey: #505050;
     --main-accent: #5e3260;
+    --light-accent: #b07fb3;
 
     --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
     --secondary-glow: linear-gradient(
@@ -102,6 +104,15 @@ h1 {
   font-size: 44px;
   font-weight: bold;
   color: var(--main-light);
+}
+
+a,
+span {
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  color: var(--main-grey);
+  text-decoration: none;
 }
 
 @media (prefers-color-scheme: dark) {

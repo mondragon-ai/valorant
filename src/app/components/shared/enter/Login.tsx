@@ -3,11 +3,13 @@ import {useState} from "react";
 import {Input} from "../../ui/form/Input";
 import styles from "../Shared.module.css";
 import {Button} from "../../ui/Button";
+import Checkbox from "../../ui/form/Checbox";
 
 export default function LoginForm() {
   const [formData, setFormData] = useState({
     password: "",
     email: "",
+    remember: false,
   });
 
   const handleLogIn = () => {
@@ -30,7 +32,17 @@ export default function LoginForm() {
         formData={formData}
         setFormData={setFormData}
       />
+      <Checkbox
+        label={"Remember Me"}
+        name={"remember"}
+        formData={formData}
+        setFormData={setFormData}
+      />
       <Button text={"Sign In"} callback={handleLogIn} />
+      <span>
+        {" "}
+        Not a member? <a href="">Sign up</a>
+      </span>
     </form>
   );
 }
