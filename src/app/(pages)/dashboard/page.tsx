@@ -4,6 +4,7 @@ import RecentStats from "@/app/components/pages/dashboard/RecentStats";
 import MainStats from "@/app/components/pages/dashboard/MainStats";
 import {TopAgents} from "@/app/components/pages/dashboard/TopAgents";
 import {WeaponsRadar} from "@/app/components/pages/dashboard/WeaponsRadar";
+import {RecentMatches} from "@/app/components/pages/dashboard/RecentMatches";
 
 export default function Dashboard() {
   return (
@@ -28,6 +29,7 @@ export default function Dashboard() {
       <MainStats />
       <TopAgents />
       <WeaponsRadar />
+      <RecentMatches />
     </main>
   );
 }

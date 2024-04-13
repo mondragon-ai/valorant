@@ -1,4 +1,3 @@
-import Image from "next/image";
 import styles from "../Pages.module.css";
 import {Agents} from "./Agents";
 import {TopAgentsTypes} from "@/types/agents";

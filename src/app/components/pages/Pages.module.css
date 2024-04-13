@@ -323,3 +323,84 @@
   padding: 2rem 1rem 1rem 1rem;
   text-align: left;
 }
+
+/* ================================================================================ */
+/* 4. Recent Matches                                                                */
+/* ================================================================================ */
+
+.match {
+  display: inline-flex;
+  /* background: linear-gradient(rgb(230, 73, 73), rgb(223, 112, 112)); */
+  /* background: linear-gradient(rgb(45, 214, 127), rgb(112, 223, 166)); */
+  border-radius: 15px;
+  width: 30%;
+  margin-left: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.match:last-of-type {
+  margin-right: 1rem;
+}
+
+.match span {
+  font-weight: 100;
+  color: antiquewhite;
+}
+
+.match img {
+  width: 50%;
+  height: auto;
+  padding: 1rem 0;
+}
+
+/* .match .text {
+  display: flex;
+  background: var(--main-grey);
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  align-items: flex-start;
+  position: relative;
+  padding: 1rem;
+  margin: 0;
+  height: auto;
+  width: 55%;
+}
+
+.agent .text > span {
+  color: antiquewhite;
+  font-weight: 100;
+  margin-top: 10px;
+  margin-bottom: 3px;
+}
+
+.agent .text > h4 {
+  font-weight: 300;
+  margin-top: 10px;
+}
+
+.agent .image {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  align-items: flex-start;
+  position: relative;
+  padding: 1rem;
+  margin: 0;
+  height: auto;
+  width: 45%;
+}
+
+.agent .image img {
+  position: absolute;
+  width: 110%;
+  height: auto;
+  top: 15px;
+  left: -2px;
+} */
