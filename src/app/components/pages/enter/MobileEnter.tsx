@@ -6,9 +6,9 @@ import {useState} from "react";
 import RegisterForm from "../../shared/enter/RegisterForm";
 
 export default function MobileEnter() {
-  const [isLogin, setForm] = useState(false);
+  const [isLogin, setForm] = useState(true);
   return (
-    <main className={styles.mainPage}>
+    <main className={styles.mainPage} style={{paddingBottom: "3rem"}}>
       <div className={styles.bkgImg}>
         <Image
           src={

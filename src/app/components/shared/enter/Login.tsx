@@ -1,25 +1,30 @@
 "use client";
-import {Dispatch, SetStateAction, useState} from "react";
+import {Dispatch, MouseEvent, SetStateAction, useState} from "react";
 import {Input} from "../../ui/form/Input";
 import styles from "../Shared.module.css";
 import {Button} from "../../ui/Button";
 import Checkbox from "../../ui/form/Checbox";
+import {useRouter} from "next/navigation";
 
 export default function LoginForm({
   setForm,
 }: {
   setForm: Dispatch<SetStateAction<boolean>>;
 }) {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     password: "",
     email: "",
     remember: false,
   });
 
-  const handleLogIn = () => {
-    alert("Logged In");
+  const handleLogIn = (
+    e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
+  ) => {
+    e.preventDefault();
+    alert("Regsiter In -> RSO + Redirect");
+    router.push("/dashboard");
   };
-
   return (
     <form className={styles.formWrapper}>
       <Input
@@ -47,7 +52,10 @@ export default function LoginForm({
       <div className={styles.textBox}>
         <span>
           {" "}
-          Not a member? <span onClick={() => setForm(false)}>Sign up</span>
+          Not a member?{" "}
+          <span style={{color: "white"}} onClick={() => setForm(false)}>
+            Sign up
+          </span>
         </span>
         <span> Forgot your password?</span>
       </div>

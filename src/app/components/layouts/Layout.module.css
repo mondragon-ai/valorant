@@ -65,3 +65,49 @@
     height: auto;
   }
 }
+
+/* =============================================================== */
+/*  2. Page Header                                                 */
+/* =============================================================== */
+
+.pageHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+  padding: 1rem;
+  margin: 0;
+  width: 100%;
+  height: auto;
+}
+
+.pageHeader .profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+  padding: 0rem;
+  margin: 0;
+  width: auto;
+  height: auto;
+}
+
+.pageHeader .profile span {
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 100;
+  color: var(--main-light);
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.pageHeader .profile img {
+  margin-left: 0.3rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--main-accent);
+  object-fit: cover;
+}

@@ -1,14 +1,16 @@
 "use client";
-import {Dispatch, SetStateAction, useState} from "react";
+import {Dispatch, MouseEvent, SetStateAction, useState} from "react";
 import {Input} from "../../ui/form/Input";
 import styles from "../Shared.module.css";
 import {Button} from "../../ui/Button";
+import {useRouter} from "next/navigation";
 
 export default function RegisterForm({
   setForm,
 }: {
   setForm: Dispatch<SetStateAction<boolean>>;
 }) {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     password: "",
     confirm_password: "",
@@ -17,8 +19,12 @@ export default function RegisterForm({
     remember: false,
   });
 
-  const handleLogIn = () => {
-    alert("Regsiter In");
+  const handleLogIn = (
+    e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
+  ) => {
+    e.preventDefault();
+    alert("Regsiter In -> RSO + Redirect");
+    router.push("/dashboard");
   };
 
   return (
@@ -56,7 +62,10 @@ export default function RegisterForm({
       <Button text={"Register"} callback={handleLogIn} />
       <span>
         {" "}
-        Already a member? <span onClick={() => setForm(true)}>Sign In</span>
+        Already a member?{" "}
+        <span style={{color: "white"}} onClick={() => setForm(true)}>
+          Sign In
+        </span>
       </span>
     </form>
   );

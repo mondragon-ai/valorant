@@ -58,7 +58,10 @@ const recent_matches = [
 
 export const RecentMatches = () => {
   return (
-    <section className={styles.topAgentsWrapper}>
+    <section
+      className={styles.topAgentsWrapper}
+      style={{paddingBottom: "2rem"}}
+    >
       <h5 style={{padding: "2rem 1rem 0 1rem"}}>Recent Matches</h5>
       <div className={styles.agentContainer}>
         {recent_matches &&

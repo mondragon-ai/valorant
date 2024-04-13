@@ -7,6 +7,7 @@ import {Leaderboards} from "@/app/components/pages/leaderboards/Leaderboards";
 import {Button} from "@/app/components/ui/Button";
 import {Pagination} from "@/app/components/pages/leaderboards/Pagination";
 import {Footer} from "@/app/components/layouts/Footer";
+import {PageHeader} from "@/app/components/layouts/PageHeader";
 
 const regions = [
   {label: "North America", value: "na1"},
@@ -38,22 +39,7 @@ export default function Leaderboard() {
   });
   return (
     <main className={styles.mainPage}>
-      <header>
-        <h5>Leaderboard</h5>
-        <div className={styles.profile}>
-          <span>Mithrandir</span>
-          <div>
-            <Image
-              src={
-                "https://wallpapers.com/images/high/valorant-computer-v-metallic-claw-logo-exi5u3qu0f2lji5q.webp"
-              }
-              alt={""}
-              width={1000}
-              height={1000}
-            />
-          </div>
-        </div>
-      </header>
+      <PageHeader title="Leaderboard" />
 
       <div className={styles.selectHeader}>
         <Select
