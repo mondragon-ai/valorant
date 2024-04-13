@@ -3,4 +3,5 @@ export type LeaderRowType = {
   tag: string;
   image: string;
   rank: number;
+  rating: number;
 };

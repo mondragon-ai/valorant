@@ -8,70 +8,80 @@ const leaders = [
     tag: "uau",
     image:
       "https://tiermaker.com/images/chart/chart/valorant-ranks-iron-to-radiant-1517264/radiantpng.png",
-    rank: 982,
+    rating: 982,
+    rank: 1,
   },
   {
     player: "Gandalf",
     tag: "xyz",
     image:
       "https://tiermaker.com/images/chart/chart/valorant-ranks-iron-to-radiant-1517264/radiantpng.png",
-    rank: 940,
+    rating: 940,
+    rank: 2,
   },
   {
     player: "Aragorn",
     tag: "abc",
     image:
       "https://tiermaker.com/images/chart/chart/valorant-ranks-iron-to-radiant-1517264/radiantpng.png",
-    rank: 900,
+    rating: 900,
+    rank: 3,
   },
   {
     player: "Legolas",
     tag: "def",
     image:
       "https://tiermaker.com/images/chart/chart/valorant-ranks-iron-to-radiant-1517264/radiantpng.png",
-    rank: 880,
+    rating: 880,
+    rank: 4,
   },
   {
     player: "Gimli",
     tag: "ghi",
     image:
       "https://tiermaker.com/images/chart/chart/valorant-ranks-iron-to-radiant-1517264/radiantpng.png",
-    rank: 850,
+    rating: 850,
+    rank: 5,
   },
   {
     player: "Frodo",
     tag: "jkl",
     image:
       "https://tiermaker.com/images/chart/chart/valorant-ranks-iron-to-radiant-1517264/radiantpng.png",
-    rank: 820,
+    rating: 820,
+    rank: 6,
   },
   {
     player: "Samwise",
     tag: "mno",
     image:
       "https://tiermaker.com/images/chart/chart/valorant-ranks-iron-to-radiant-1517264/radiantpng.png",
-    rank: 800,
+    rating: 800,
+    rank: 7,
   },
   {
     player: "Gollum",
     tag: "pqr",
     image:
       "https://tiermaker.com/images/chart/chart/valorant-ranks-iron-to-radiant-1517264/radiantpng.png",
-    rank: 780,
+    rating: 780,
+    rank: 8,
   },
   {
     player: "Boromir",
     tag: "stu",
     image:
       "https://tiermaker.com/images/chart/chart/valorant-ranks-iron-to-radiant-1517264/radiantpng.png",
-    rank: 750,
+    rating: 750,
+    rank: 9,
   },
   {
     player: "Sauron",
     tag: "vwx",
     image:
       "https://tiermaker.com/images/chart/chart/valorant-ranks-iron-to-radiant-1517264/radiantpng.png",
-    rank: 700,
+    rating: 700,
+    rank: 10,
   },
 ] as LeaderRowType[];
 
@@ -86,8 +96,8 @@ export const Leaderboards = () => {
         <h6 style={{width: "30%", background: "#4141411e"}}>Ranked Rating</h6>
       </header>
       {leaders &&
-        leaders.map((leader, index) => {
-          return <LeaderboardRow leader={leader} index={index} />;
+        leaders.map((leader) => {
+          return <LeaderboardRow leader={leader} />;
         })}
     </div>
   );

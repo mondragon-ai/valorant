@@ -7,7 +7,8 @@
   padding: 0;
   margin: 0;
   width: 100%;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
 }
 .mainPage header {
   display: flex;
@@ -63,4 +64,8 @@
   margin: 0;
   width: 100%;
   height: auto;
+}
+
+.selectHeader .buttonWrapper .flashSlide {
+  margin-top: 0 !important;
 }

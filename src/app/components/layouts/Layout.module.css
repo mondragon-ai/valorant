@@ -12,7 +12,9 @@
   width: 100%;
   position: relative;
   padding: 5vw;
+  padding-bottom: 4rem;
   background-color: #001322;
+  border-top: 1px solid rgba(249, 249, 249, 0.227);
 }
 
 .footerContainer > img {

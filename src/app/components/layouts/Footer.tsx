@@ -92,41 +92,6 @@ export const Footer = () => {
           <li className="footer-list-item">
             <a
               href="#"
-              target="_blank"
-              className={styles.link}
-              rel="noopener nofollow"
-              data-gv2-element="element"
-              data-gv2-key="button"
-              data-gv2-name="mlp_link"
-              data-gv2-type="button"
-              data-gv2-elementid="mlp_link"
-              data-analytics="click"
-              data-analytics-name="Supported Devices"
-              data-testid="mlp_link_footer"
-            >
-              <span>Compatible Devices</span>
-            </a>
-          </li>
-          <li className="footer-list-item">
-            <a
-              href="#"
-              className={styles.link}
-              rel="noopener nofollow"
-              data-gv2-element="element"
-              data-gv2-key="button"
-              data-gv2-name="mlp_link"
-              data-gv2-type="button"
-              data-gv2-elementid="mlp_link"
-              data-analytics="click"
-              data-analytics-name="About Us"
-              data-testid="mlp_link_footer"
-            >
-              <span>About Mug Club (or Rumble)</span>
-            </a>
-          </li>
-          <li className="footer-list-item">
-            <a
-              href="#"
               className={styles.link}
               rel="noopener nofollow"
               data-gv2-element="element"
@@ -143,14 +108,14 @@ export const Footer = () => {
           </li>
         </ul>
         <p className={styles.textFine}>
-          ® 2024 2024 Mug Club (or Rumble) and The Mug Club (or Rumble) Company.
-          All rights reserved. Paid subscription service. Content subject to
-          availability.
+          ® 2024 Devve Games (Devvio) Company. All rights reserved. Data subject
+          to availability.
           <br /> <br />
-          Mug Club (or Rumble) is a paid subscription-based service, subject to
-          terms and conditions. The Mug Club (or Rumble) service is offered by
-          The Mug Club (or Rumble) Company at World Trade Center, 12551, 12555,
-          12559, 10th Floor,
+          Devve Games Tracker isn't endorsed by Riot Games and doesn't reflect
+          the views or opinions of Riot Games or anyone officially involved in
+          producing or managing Riot Games properties. Riot Games, and all
+          associated properties are trademarks or registered trademarks of Riot
+          Games, Inc.
         </p>
       </div>
     </footer>

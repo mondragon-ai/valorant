@@ -6,6 +6,7 @@ import {useState} from "react";
 import {Leaderboards} from "@/app/components/pages/leaderboards/Leaderboards";
 import {Button} from "@/app/components/ui/Button";
 import {Pagination} from "@/app/components/pages/leaderboards/Pagination";
+import {Footer} from "@/app/components/layouts/Footer";
 
 const regions = [
   {label: "North America", value: "na1"},
@@ -70,8 +71,10 @@ export default function Leaderboard() {
           setFormData={setArgs}
         />
         <Button text={"Show Stats"} callback={() => {}} />
-        <span style={{paddingBottom: "5px"}}>Last updated: 9 minutes ago</span>
-        <h5>
+        <span style={{padding: "1rem 0 5px 0"}}>
+          Last updated: 9 minutes ago
+        </span>
+        <h5 style={{padding: "0 0 15px 0"}}>
           North America Competitive Ranked Rating for Episode 2 - Act 1
           Leaderboard
         </h5>
@@ -79,6 +82,7 @@ export default function Leaderboard() {
 
       <Leaderboards />
       <Pagination />
+      <Footer />
     </main>
   );
 }

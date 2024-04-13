@@ -127,6 +127,10 @@ span {
   text-decoration: none;
 }
 
+.selectHeader .buttonWrapper .flashSlide {
+  margin-top: 0 !important;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

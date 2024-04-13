@@ -468,12 +468,17 @@
   padding: 0.5rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   position: relative;
-  align-items: center;
+  align-items: flex-start;
   padding: 0.5rem 0;
   margin: 0;
   width: 100%;
+}
+
+.leaderboardRow > div > span {
+  color: rgb(172, 168, 168);
+  margin: 1px 0 0 2px;
 }
 
 .leaderboardRow > div .playerItem {
