@@ -8,6 +8,7 @@ import {Button} from "@/app/components/ui/Button";
 import {Pagination} from "@/app/components/pages/leaderboards/Pagination";
 import {Footer} from "@/app/components/layouts/Footer";
 import {PageHeader} from "@/app/components/layouts/PageHeader";
+import {Sidebar} from "@/app/components/layouts/Sidebar";
 
 const regions = [
   {label: "North America", value: "na1"},
@@ -46,6 +47,7 @@ export default function Leaderboard() {
 
   return (
     <main className={styles.mainPage}>
+      <Sidebar isOpen={isOpen} />
       <PageHeader openMenu={handleMenu} isOpen={isOpen} title="Leaderboard" />
 
       <div className={styles.selectHeader}>

@@ -200,11 +200,14 @@
 }
 
 /* =============================================================== */
-/*  3. Sidebar                                                      */
+/*  3. Sidebar                                                     */
 /* =============================================================== */
 .sidebar {
   position: absolute;
   display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   width: 100%;
   left: 0%;
   height: auto;
@@ -272,6 +275,11 @@
   padding: 1rem 1rem 1rem 0;
 }
 
+.sidebar h5 {
+  font-weight: 100;
+  color: #001322;
+}
+
 .sidebar .profile .avatar {
   position: relative;
   display: flex;
@@ -312,4 +320,67 @@
   background: #00132263;
   padding: 1px 2px;
   border-radius: 2px;
+}
+
+/*  Nav Menu                                                       */
+/* =============================================================== */
+.sidebar .nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0rem;
+  margin: 0rem auto;
+  width: 100%;
+  height: 100%;
+  flex: 1 1;
+  flex-direction: column;
+}
+
+.sidebar .nav ul {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0rem;
+  margin: 0rem auto;
+  width: 100%;
+  height: auto;
+  padding: 1rem 1rem 1rem 0;
+}
+.sidebar .nav ul li {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 80%;
+  margin-bottom: 2rem;
+}
+
+.sidebar .nav ul li a {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 80%;
+  margin-bottom: 2rem;
+  text-decoration: none;
+}
+
+.sidebar .nav ul .icon {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 40%;
+  height: auto;
+  padding: 10px;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  background-color: #001322;
+  margin-right: 1rem;
 }
