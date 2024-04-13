@@ -5,6 +5,7 @@ import {Select} from "@/app/components/ui/form/Select";
 import {useState} from "react";
 import {Leaderboards} from "@/app/components/pages/leaderboards/Leaderboards";
 import {Button} from "@/app/components/ui/Button";
+import {Pagination} from "@/app/components/pages/leaderboards/Pagination";
 
 const regions = [
   {label: "North America", value: "na1"},
@@ -77,6 +78,7 @@ export default function Leaderboard() {
       </div>
 
       <Leaderboards />
+      <Pagination />
     </main>
   );
 }
