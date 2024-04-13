@@ -51,5 +51,16 @@
   object-fit: cover;
 }
 /* ================================================================================ */
-/* 1. Dashboard                                                                     */
+/* 1. Leaderboard                                                                   */
 /* ================================================================================ */
+.selectHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  align-items: flex-start;
+  padding: 1rem;
+  margin: 0;
+  width: 100%;
+  height: auto;
+}

@@ -404,3 +404,49 @@
   top: 15px;
   left: -2px;
 } */
+
+/* ================================================================================ */
+/* 5. Leaderboard                                                                   */
+/* ================================================================================ */
+
+.leaderboardWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  align-items: flex-start;
+  padding: 0rem;
+  margin: 0;
+  width: 100%;
+  height: auto;
+}
+
+.leaderboardWrapper header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  align-items: flex-end;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: auto;
+  background: rgba(65, 65, 65, 0.117);
+}
+
+.leaderboardWrapper header > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  position: relative;
+  align-items: flex-end;
+  padding: 0rem;
+  margin: 0;
+  width: auto;
+  height: auto;
+  border: 1px solid red;
+}
+
+.leaderboardWrapper header h6 {
+  padding: 0.5rem;
+}

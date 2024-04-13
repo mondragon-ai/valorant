@@ -34,6 +34,21 @@
   color: black;
 }
 
+.input select {
+  width: 100%;
+  padding: 20px 10px 5px 10px;
+  border: 2.5px solid var(--main-accent);
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: var(--main-light);
+  color: black;
+  appearance: none;
+  /* For Firefox */
+  -moz-appearance: none;
+  /* For Chrome */
+  -webkit-appearance: none;
+}
+
 .showPassword {
   position: absolute;
   top: 25px;
