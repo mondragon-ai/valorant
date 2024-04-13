@@ -273,6 +273,7 @@
   height: auto;
   max-height: 150px;
   padding: 1rem 1rem 1rem 0;
+  margin-bottom: 3rem;
 }
 
 .sidebar h5 {
@@ -356,7 +357,7 @@
   justify-content: flex-start;
   align-items: center;
   width: 80%;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .sidebar .nav ul li a {
@@ -366,7 +367,7 @@
   justify-content: flex-start;
   align-items: center;
   width: 80%;
-  margin-bottom: 2rem;
+  margin-bottom: 0rem;
   text-decoration: none;
 }
 
@@ -382,5 +383,9 @@
   border-top-right-radius: 7px;
   border-bottom-right-radius: 7px;
   background-color: #001322;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
+}
+
+.sidebar .nav ul li a h5 {
+  font-size: 15px;
 }

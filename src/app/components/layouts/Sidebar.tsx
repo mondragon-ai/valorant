@@ -4,6 +4,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
   faAnglesLeft,
   faArrowRightFromBracket,
+  faGears,
   faMedal,
   faTrophy,
 } from "@fortawesome/free-solid-svg-icons";
@@ -57,6 +58,14 @@ export const Sidebar = ({isOpen}: {isOpen: boolean}) => {
           </li>
         </ul>
         <ul>
+          <li style={{marginBottom: "10px"}}>
+            <a href="/">
+              <div className={styles.icon}>
+                <FontAwesomeIcon icon={faGears} />
+              </div>
+              <h5>Settings</h5>
+            </a>
+          </li>
           <li style={{marginBottom: "10px"}}>
             <a href="/">
               <div className={styles.icon}>

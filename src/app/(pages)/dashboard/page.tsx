@@ -11,7 +11,7 @@ import {useState} from "react";
 import {Sidebar} from "@/app/components/layouts/Sidebar";
 
 export default function Dashboard() {
-  const [isOpen, setOpen] = useState(true);
+  const [isOpen, setOpen] = useState(false);
 
   const handleMenu = () => {
     console.log("clicked: " + (!isOpen == true ? "true" : "f"));

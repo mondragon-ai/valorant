@@ -131,6 +131,9 @@ span {
   margin-top: 0 !important;
 }
 
+div::-webkit-scrollbar {
+  display: none;
+}
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
