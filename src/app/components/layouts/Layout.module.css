@@ -111,3 +111,205 @@
   border: 1px solid var(--main-accent);
   object-fit: cover;
 }
+
+/* Icon 4 */
+
+.hb {
+  height: 15px;
+  position: relative;
+  margin: 5px auto;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  width: 40px;
+}
+
+.hb span {
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 80%;
+  background: #d3531a;
+  border-radius: 1px;
+  opacity: 1;
+  right: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+
+.hb span:nth-child(1) {
+  top: 0px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.hb span:nth-child(2) {
+  top: 9px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.hb span:nth-child(3) {
+  top: 18px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.hb.open span:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  top: -3px;
+  left: 8px;
+  width: 80%;
+}
+
+.hb.open span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+  width: 80%;
+}
+
+.hb.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 20px;
+  left: 8px;
+  width: 80%;
+}
+
+/* =============================================================== */
+/*  3. Sidebar                                                      */
+/* =============================================================== */
+.sidebar {
+  position: absolute;
+  display: inline-flex;
+  width: 100%;
+  left: 0%;
+  height: auto;
+  min-height: 100vh;
+  background: radial-gradient(
+    100% 100% at 100% 0%,
+    rgb(234, 67, 67),
+    rgb(218, 48, 48)
+  );
+  z-index: 2;
+  clip-path: polygon(
+    0 0,
+    0 100%,
+    70% 100%,
+    70% 51%,
+    69% 51%,
+    69% 41%,
+    70% 41%,
+    70% 36%,
+    78% 36%,
+    78% 25%,
+    92% 25%,
+    92% 16%,
+    84% 16%,
+    84% 8%,
+    73% 8%,
+    73% 0%
+  );
+  transition: clip-path 1s ease, left 1.5s ease;
+}
+
+.sidebar.closed {
+  left: -100%;
+  clip-path: polygon(
+    0 0,
+    0 100%,
+    65% 100%,
+    65% 51%,
+    65% 51%,
+    65% 41%,
+    65% 41%,
+    65% 36%,
+    65% 36%,
+    65% 25%,
+    65% 25%,
+    65% 16%,
+    65% 16%,
+    65% 8%,
+    65% 8%,
+    65% 0%
+  );
+}
+
+.sidebar .profile {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0rem;
+  margin: 0rem auto;
+  width: 100%;
+  height: auto;
+  max-height: 150px;
+  padding: 1rem 1rem 1rem 0;
+}
+
+.sidebar .profile .avatar {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: auto;
+  padding: 1rem;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: #001322;
+  margin-right: 1rem;
+}
+
+.sidebar .profile .avatar img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid var(--main-accent);
+}
+
+.sidebar .profile .name {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: auto;
+  height: auto;
+  margin-top: 1.5rem;
+}
+
+.sidebar .profile .name span {
+  color: aliceblue;
+  font-weight: 100;
+  background: #00132263;
+  padding: 1px 2px;
+  border-radius: 2px;
+}

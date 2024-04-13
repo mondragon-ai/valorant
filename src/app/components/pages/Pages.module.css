@@ -78,6 +78,8 @@
   height: auto;
   transform: scaleX(-1) scale(1.5);
   opacity: 0.2;
+  position: absolute;
+  z-index: -1;
 }
 
 .currRank {

@@ -33,13 +33,20 @@ const seasons = [
   {label: "EPISODE 3: ACT 3", value: "23n8jdm3-1k4h-a340-6e54-9283j4n93m8d"},
 ];
 export default function Leaderboard() {
+  const [isOpen, setOpen] = useState(false);
   const [args, setArgs] = useState({
     region: "na1",
     season: "22d10d66-4d2a-a340-6c54-408c7bd53807",
   });
+
+  const handleMenu = () => {
+    console.log("clicked: " + (!isOpen == true ? "true" : "f"));
+    setOpen(!isOpen);
+  };
+
   return (
     <main className={styles.mainPage}>
-      <PageHeader title="Leaderboard" />
+      <PageHeader openMenu={handleMenu} isOpen={isOpen} title="Leaderboard" />
 
       <div className={styles.selectHeader}>
         <Select

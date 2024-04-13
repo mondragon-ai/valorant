@@ -1,21 +1,30 @@
-import Image from "next/image";
+// import Image from "next/image";
+"use client";
+import {useState} from "react";
 import styles from "./Layout.module.css";
 
-export const PageHeader = ({title}: {title: string}) => {
+export const PageHeader = ({
+  title,
+  openMenu,
+  isOpen,
+}: {
+  title: string;
+  openMenu: () => void;
+  isOpen: boolean;
+}) => {
   return (
     <header className={styles.pageHeader}>
       <h5>{title}</h5>
       <div className={styles.profile}>
         <span>Mithrandir</span>
-        <div>
-          <Image
-            src={
-              "https://wallpapers.com/images/high/valorant-computer-v-metallic-claw-logo-exi5u3qu0f2lji5q.webp"
-            }
-            alt={""}
-            width={1000}
-            height={1000}
-          />
+
+        <div
+          className={`${styles.hb} ${isOpen ? styles.open : ""}`}
+          onClick={openMenu}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </div>
     </header>
