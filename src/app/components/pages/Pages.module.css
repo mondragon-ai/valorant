@@ -301,3 +301,25 @@
   top: 15px;
   left: -2px;
 }
+
+/* ================================================================================ */
+/* 3. Top Weapons                                                                   */
+/* ================================================================================ */
+.chartWrapper {
+  height: 250px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.chartWrapper h5 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 1rem 1rem 1rem;
+  text-align: left;
+}
