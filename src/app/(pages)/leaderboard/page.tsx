@@ -4,6 +4,7 @@ import styles from "../Pages.module.css";
 import {Select} from "@/app/components/ui/form/Select";
 import {useState} from "react";
 import {Leaderboards} from "@/app/components/pages/leaderboards/Leaderboards";
+import {Button} from "@/app/components/ui/Button";
 
 const regions = [
   {label: "North America", value: "na1"},
@@ -30,15 +31,15 @@ const seasons = [
 ];
 export default function Leaderboard() {
   const [args, setArgs] = useState({
-    region: "",
-    season: "",
+    region: "na1",
+    season: "22d10d66-4d2a-a340-6c54-408c7bd53807",
   });
   return (
     <main className={styles.mainPage}>
       <header>
         <h5>Leaderboard</h5>
         <div className={styles.profile}>
-          <span>Mithrandril</span>
+          <span>Mithrandir</span>
           <div>
             <Image
               src={
@@ -67,6 +68,7 @@ export default function Leaderboard() {
           formData={args}
           setFormData={setArgs}
         />
+        <Button text={"Show Stats"} callback={() => {}} />
         <span style={{paddingBottom: "5px"}}>Last updated: 9 minutes ago</span>
         <h5>
           North America Competitive Ranked Rating for Episode 2 - Act 1

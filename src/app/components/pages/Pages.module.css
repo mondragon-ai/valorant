@@ -450,3 +450,56 @@
 .leaderboardWrapper header h6 {
   padding: 0.5rem;
 }
+
+.leaderboardRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  align-items: stretch;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: auto;
+  background: transparent;
+}
+
+.leaderboardRow > div {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+  padding: 0.5rem 0;
+  margin: 0;
+  width: 100%;
+}
+
+.leaderboardRow > div .playerItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: auto;
+}
+
+.leaderboardRow > div .playerItem span {
+  padding: 1px 5px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.16);
+  color: antiquewhite;
+}
+
+.leaderboardRow > div img {
+  width: 30px;
+  height: auto;
+}
+
+.leaderboardRow > div > h5 {
+  padding-right: 1rem;
+}

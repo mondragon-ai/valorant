@@ -12,7 +12,7 @@ export default function Dashboard() {
       <header>
         <h5>Performance</h5>
         <div className={styles.profile}>
-          <span>Mithrandril</span>
+          <span>Mithrandir</span>
           <div>
             <Image
               src={
