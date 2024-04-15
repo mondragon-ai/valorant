@@ -77,7 +77,6 @@ export const WeaponsRadar = () => {
 
 const CustomTooltip: React.FC<any> = (props) => {
   const {active, payload} = props;
-  console.log(props);
   if (active && payload && payload.length) {
     return <p>{`${payload[0].payload.kills} Kills`}</p>;
   }

@@ -1,18 +1,25 @@
 "use client";
-import {Dispatch, MouseEvent, SetStateAction, useState} from "react";
+import {
+  Dispatch,
+  MouseEvent,
+  SetStateAction,
+  useContext,
+  useState,
+} from "react";
 import {Input} from "../../ui/form/Input";
 import styles from "../Shared.module.css";
 import {Button} from "../../ui/Button";
 import Checkbox from "../../ui/form/Checbox";
 import {useRouter} from "next/navigation";
 import {serverApiRequest} from "@/third-party-apis/server";
-import {error} from "console";
+import {Context, useGlobalContext} from "@/lib/context/appSession";
 
 export default function LoginForm({
   setForm,
 }: {
   setForm: Dispatch<SetStateAction<boolean>>;
 }) {
+  const {globalState, setGlobalState} = useGlobalContext();
   const router = useRouter();
   const [error, setError] = useState("");
   const [formData, setFormData] = useState({
@@ -25,13 +32,18 @@ export default function LoginForm({
     e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
   ) => {
     e.preventDefault();
-    const {status} = await serverApiRequest("/auth/login", "POST", formData);
+    const {status, data} = await serverApiRequest(
+      "/auth/login",
+      "POST",
+      formData,
+    );
     if (status === 200) {
       setFormData({
         password: "",
         email: "",
         remember: false,
       });
+      setGlobalState({...globalState, player: data.player});
       router.push("/dashboard");
     } else if (status === 500) {
       setError("Try again ater");

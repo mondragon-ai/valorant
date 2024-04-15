@@ -1,6 +1,8 @@
 import type {Metadata} from "next";
 import {Inter} from "next/font/google";
 import "./globals.css";
+import Head from "next/head";
+import {ContextProvider} from "@/lib/providers/GlobalContext";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -17,7 +19,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        />
+      </Head>
+      <body className={inter.className}>
+        <ContextProvider>
+          <main>{children}</main>
+        </ContextProvider>
+      </body>
     </html>
   );
 }

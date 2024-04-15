@@ -1,5 +1,5 @@
 import axios, {AxiosRequestConfig} from "axios";
-const URL = true
+const URL = false
   ? "https://us-central1-devve-cod.cloudfunctions.net"
   : "http://127.0.0.1:5001/devve-cod/us-central1";
 
@@ -30,7 +30,6 @@ export const serverApiRequest = async (
   try {
     const response = await axios(options);
 
-    console.log(response);
     if (response.status === 200) {
       const result = await response.data;
       return {

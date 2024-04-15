@@ -2,13 +2,15 @@
 import Image from "next/image";
 import styles from "../Pages.module.css";
 import {Select} from "@/app/components/ui/form/Select";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Leaderboards} from "@/app/components/pages/leaderboards/Leaderboards";
 import {Button} from "@/app/components/ui/Button";
 import {Pagination} from "@/app/components/pages/leaderboards/Pagination";
 import {Footer} from "@/app/components/layouts/Footer";
 import {PageHeader} from "@/app/components/layouts/PageHeader";
 import {Sidebar} from "@/app/components/layouts/Sidebar";
+import {useRouter} from "next/router";
+import {isAuthenticated} from "@/lib/auth";
 
 const regions = [
   {label: "North America", value: "na1"},
@@ -34,7 +36,16 @@ const seasons = [
   {label: "EPISODE 3: ACT 3", value: "23n8jdm3-1k4h-a340-6e54-9283j4n93m8d"},
 ];
 export default function Leaderboard() {
+  const router = useRouter();
   const [isOpen, setOpen] = useState(false);
+
+  useEffect(() => {
+    const isLoggedIn = isAuthenticated();
+    if (!isLoggedIn) {
+      router.push("/"); // Redirect to the login page or any other route
+    }
+  }, []);
+
   const [args, setArgs] = useState({
     region: "na1",
     season: "22d10d66-4d2a-a340-6c54-408c7bd53807",

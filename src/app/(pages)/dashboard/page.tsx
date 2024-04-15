@@ -7,16 +7,26 @@ import {WeaponsRadar} from "@/app/components/pages/dashboard/WeaponsRadar";
 import {RecentMatches} from "@/app/components/pages/dashboard/RecentMatches";
 import {Footer} from "@/app/components/layouts/Footer";
 import {PageHeader} from "@/app/components/layouts/PageHeader";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Sidebar} from "@/app/components/layouts/Sidebar";
+import {useRouter} from "next/navigation";
+import {isAuthenticated} from "@/lib/auth";
 
 export default function Dashboard() {
+  const router = useRouter();
   const [isOpen, setOpen] = useState(false);
 
   const handleMenu = () => {
     console.log("clicked: " + (!isOpen == true ? "true" : "f"));
     setOpen(!isOpen);
   };
+
+  useEffect(() => {
+    const isLoggedIn = isAuthenticated();
+    if (!isLoggedIn) {
+      router.push("/"); // Redirect to the login page or any other route
+    }
+  }, []);
 
   return (
     <main

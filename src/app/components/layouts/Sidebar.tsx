@@ -9,8 +9,21 @@ import {
   faTrophy,
 } from "@fortawesome/free-solid-svg-icons";
 import {faAddressCard} from "@fortawesome/free-regular-svg-icons";
+import {serverApiRequest} from "@/third-party-apis/server";
+import {useRouter} from "next/navigation";
+import {useGlobalContext} from "@/lib/context/appSession";
+import {initGlobalValues} from "@/lib/data/initial";
 
 export const Sidebar = ({isOpen}: {isOpen: boolean}) => {
+  const {setGlobalState} = useGlobalContext();
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    await serverApiRequest("/auth/logout", "POST", null);
+    setGlobalState(initGlobalValues);
+    router.push("/");
+  };
+
   return (
     <article className={`${styles.sidebar} ${isOpen ? "" : styles.closed}`}>
       <div className={styles.profile}>
@@ -67,7 +80,7 @@ export const Sidebar = ({isOpen}: {isOpen: boolean}) => {
             </a>
           </li>
           <li style={{marginBottom: "10px"}}>
-            <a href="/">
+            <a onClick={() => handleLogout()}>
               <div className={styles.icon}>
                 <FontAwesomeIcon icon={faArrowRightFromBracket} />
               </div>
