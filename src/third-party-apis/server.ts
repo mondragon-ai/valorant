@@ -1,5 +1,5 @@
 import axios, {AxiosRequestConfig} from "axios";
-const URL = false
+const URL = true
   ? "https://us-central1-devve-cod.cloudfunctions.net"
   : "http://127.0.0.1:5001/devve-cod/us-central1";
 
