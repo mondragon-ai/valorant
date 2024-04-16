@@ -1,18 +1,13 @@
 "use client";
-import {
-  Dispatch,
-  MouseEvent,
-  SetStateAction,
-  useContext,
-  useState,
-} from "react";
+import {Dispatch, MouseEvent, SetStateAction, useState} from "react";
 import {Input} from "../../ui/form/Input";
 import styles from "../Shared.module.css";
 import {Button} from "../../ui/Button";
 import Checkbox from "../../ui/form/Checbox";
 import {useRouter} from "next/navigation";
 import {serverApiRequest} from "@/third-party-apis/server";
-import {Context, useGlobalContext} from "@/lib/context/appSession";
+import {useGlobalContext} from "@/lib/context/appSession";
+import Cookies from "js-cookie";
 
 export default function LoginForm({
   setForm,
@@ -22,6 +17,7 @@ export default function LoginForm({
   const {globalState, setGlobalState} = useGlobalContext();
   const router = useRouter();
   const [error, setError] = useState("");
+  const [isLoading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     password: "",
     email: "",
@@ -32,6 +28,7 @@ export default function LoginForm({
     e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
   ) => {
     e.preventDefault();
+    setLoading(true);
     const {status, data} = await serverApiRequest(
       "/auth/login",
       "POST",
@@ -44,6 +41,7 @@ export default function LoginForm({
         remember: false,
       });
       setGlobalState({...globalState, player: data.player});
+      Cookies.set("devve_jwt", data.token);
       router.push("/dashboard");
     } else if (status === 500) {
       setError("Try again ater");
@@ -52,6 +50,7 @@ export default function LoginForm({
     } else if (status === 403 || status === 401) {
       setError("Unathorized. Email or passsword doesn't match");
     }
+    setLoading(false);
     setFormData({
       password: "",
       email: "",
@@ -88,7 +87,7 @@ export default function LoginForm({
         formData={formData}
         setFormData={setFormData}
       />
-      <Button text={"Sign In"} callback={handleLogIn} />
+      <Button text={"Sign In"} callback={handleLogIn} isLoading={isLoading} />
       <div className={styles.textBox}>
         <span>
           {" "}

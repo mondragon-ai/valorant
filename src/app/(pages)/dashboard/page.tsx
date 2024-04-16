@@ -11,21 +11,26 @@ import {useEffect, useState} from "react";
 import {Sidebar} from "@/app/components/layouts/Sidebar";
 import {useRouter} from "next/navigation";
 import {isAuthenticated} from "@/lib/auth";
+import {useGlobalContext} from "@/lib/context/appSession";
 
 export default function Dashboard() {
+  const {globalState} = useGlobalContext();
   const router = useRouter();
   const [isOpen, setOpen] = useState(false);
 
   const handleMenu = () => {
-    console.log("clicked: " + (!isOpen == true ? "true" : "f"));
     setOpen(!isOpen);
   };
 
   useEffect(() => {
-    const isLoggedIn = isAuthenticated();
-    if (!isLoggedIn) {
-      router.push("/"); // Redirect to the login page or any other route
-    }
+    const checkAuth = async () => {
+      const token = await isAuthenticated();
+      console.log(token);
+      if (!token) {
+        router.push("/");
+      }
+    };
+    checkAuth();
   }, []);
 
   return (
@@ -33,8 +38,13 @@ export default function Dashboard() {
       className={styles.mainPage}
       style={{position: isOpen ? "fixed" : "relative"}}
     >
-      <Sidebar isOpen={isOpen} />
-      <PageHeader title="Performance" openMenu={handleMenu} isOpen={isOpen} />
+      <Sidebar isOpen={isOpen} globalState={globalState} />
+      <PageHeader
+        title="Performance"
+        openMenu={handleMenu}
+        isOpen={isOpen}
+        globalState={globalState}
+      />
       <RecentStats />
       <MainStats />
       <TopAgents />

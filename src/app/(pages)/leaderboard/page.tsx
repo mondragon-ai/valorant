@@ -9,8 +9,9 @@ import {Pagination} from "@/app/components/pages/leaderboards/Pagination";
 import {Footer} from "@/app/components/layouts/Footer";
 import {PageHeader} from "@/app/components/layouts/PageHeader";
 import {Sidebar} from "@/app/components/layouts/Sidebar";
-import {useRouter} from "next/router";
+import {useRouter} from "next/navigation";
 import {isAuthenticated} from "@/lib/auth";
+import {useGlobalContext} from "@/lib/context/appSession";
 
 const regions = [
   {label: "North America", value: "na1"},
@@ -36,14 +37,20 @@ const seasons = [
   {label: "EPISODE 3: ACT 3", value: "23n8jdm3-1k4h-a340-6e54-9283j4n93m8d"},
 ];
 export default function Leaderboard() {
+  const {globalState} = useGlobalContext();
   const router = useRouter();
+  const [isLoading, setLoading] = useState(false);
   const [isOpen, setOpen] = useState(false);
 
   useEffect(() => {
-    const isLoggedIn = isAuthenticated();
-    if (!isLoggedIn) {
-      router.push("/"); // Redirect to the login page or any other route
-    }
+    const checkAuth = async () => {
+      const token = await isAuthenticated();
+      console.log(token);
+      if (!token) {
+        router.push("/");
+      }
+    };
+    checkAuth();
   }, []);
 
   const [args, setArgs] = useState({
@@ -52,14 +59,18 @@ export default function Leaderboard() {
   });
 
   const handleMenu = () => {
-    console.log("clicked: " + (!isOpen == true ? "true" : "f"));
     setOpen(!isOpen);
   };
 
   return (
     <main className={styles.mainPage}>
-      <Sidebar isOpen={isOpen} />
-      <PageHeader openMenu={handleMenu} isOpen={isOpen} title="Leaderboard" />
+      <Sidebar globalState={globalState} isOpen={isOpen} />
+      <PageHeader
+        openMenu={handleMenu}
+        isOpen={isOpen}
+        title="Leaderboard"
+        globalState={globalState}
+      />
 
       <div className={styles.selectHeader}>
         <Select
@@ -76,7 +87,7 @@ export default function Leaderboard() {
           formData={args}
           setFormData={setArgs}
         />
-        <Button text={"Show Stats"} callback={() => {}} />
+        <Button text={"Show Stats"} callback={() => {}} isLoading={isLoading} />
         <span style={{padding: "1rem 0 5px 0"}}>
           Last updated: 9 minutes ago
         </span>

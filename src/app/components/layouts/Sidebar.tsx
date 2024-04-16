@@ -13,16 +13,28 @@ import {serverApiRequest} from "@/third-party-apis/server";
 import {useRouter} from "next/navigation";
 import {useGlobalContext} from "@/lib/context/appSession";
 import {initGlobalValues} from "@/lib/data/initial";
+import {AppContextType} from "@/types/shared";
+import Cookies from "js-cookie";
 
-export const Sidebar = ({isOpen}: {isOpen: boolean}) => {
+export const Sidebar = ({
+  isOpen,
+  globalState,
+}: {
+  isOpen: boolean;
+  globalState: AppContextType;
+}) => {
   const {setGlobalState} = useGlobalContext();
   const router = useRouter();
 
   const handleLogout = async () => {
     await serverApiRequest("/auth/logout", "POST", null);
     setGlobalState(initGlobalValues);
+    Cookies.remove("devve_jwt", {path: "/"});
     router.push("/");
   };
+
+  const playerName = globalState.player ? globalState.player.name : "";
+  const playerEmail = globalState.player ? globalState.player.email : "";
 
   return (
     <article className={`${styles.sidebar} ${isOpen ? "" : styles.closed}`}>
@@ -38,8 +50,8 @@ export const Sidebar = ({isOpen}: {isOpen: boolean}) => {
           />
         </div>
         <div className={styles.name}>
-          <h5>Mithandir</h5>
-          <span>uau</span>
+          <h5>{playerName}</h5>
+          <span>{playerEmail}</span>
         </div>
       </div>
 

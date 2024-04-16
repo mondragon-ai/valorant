@@ -12,6 +12,7 @@ export default function RegisterForm({
 }: {
   setForm: Dispatch<SetStateAction<boolean>>;
 }) {
+  const [isLoading, setLoading] = useState(false);
   const router = useRouter();
   const [error, setError] = useState("");
   const [formData, setFormData] = useState({
@@ -26,6 +27,7 @@ export default function RegisterForm({
     e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
   ) => {
     e.preventDefault();
+    setLoading(true);
     if (
       checkPasswordStrength(formData.password) &&
       formData.password == formData.confirm_password &&
@@ -50,6 +52,7 @@ export default function RegisterForm({
       } else if (status === 409) {
         setError("Email already in use. Log in instead");
       }
+      setLoading(false);
       setFormData({
         password: "",
         confirm_password: "",
@@ -99,7 +102,7 @@ export default function RegisterForm({
         formData={formData}
         setFormData={setFormData}
       />
-      <Button text={"Register"} callback={handleLogIn} />
+      <Button text={"Register"} callback={handleLogIn} isLoading={isLoading} />
       <span>
         {" "}
         Already a member?{" "}
