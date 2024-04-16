@@ -74,7 +74,7 @@ export const Sidebar = ({
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="/challenges">
               <div className={styles.icon}>
                 <FontAwesomeIcon icon={faTrophy} />
               </div>

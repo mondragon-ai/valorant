@@ -85,8 +85,6 @@ const leaders = [
   },
 ] as LeaderRowType[];
 
-console.log(leaders);
-
 export const Leaderboards = () => {
   return (
     <div className={styles.leaderboardWrapper}>
@@ -96,8 +94,8 @@ export const Leaderboards = () => {
         <h6 style={{width: "30%", background: "#4141411e"}}>Ranked Rating</h6>
       </header>
       {leaders &&
-        leaders.map((leader) => {
-          return <LeaderboardRow leader={leader} />;
+        leaders.map((leader, i) => {
+          return <LeaderboardRow key={i} leader={leader} />;
         })}
     </div>
   );

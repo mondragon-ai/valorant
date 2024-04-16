@@ -63,7 +63,10 @@ export default function Leaderboard() {
   };
 
   return (
-    <main className={styles.mainPage}>
+    <main
+      className={styles.mainPage}
+      style={{position: isOpen ? "fixed" : "relative"}}
+    >
       <Sidebar globalState={globalState} isOpen={isOpen} />
       <PageHeader
         openMenu={handleMenu}

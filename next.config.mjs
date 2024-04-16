@@ -22,6 +22,14 @@ const nextConfig = {
         protocol: "https",
         hostname: "images.contentstack.io",
       },
+      {
+        protocol: "https",
+        hostname: "dotesports.com",
+      },
+      {
+        protocol: "https",
+        hostname: "valorantstats.xyz",
+      },
     ],
   },
 };
