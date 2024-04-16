@@ -11,6 +11,5 @@ export const getTokenFromCookie = (): Promise<string | null> => {
 
 export const isAuthenticated = async (): Promise<boolean> => {
   const token = await getTokenFromCookie();
-  console.log(token);
   return !!token;
 };

@@ -9,6 +9,7 @@ import {isAuthenticated} from "@/lib/auth";
 import {useGlobalContext} from "@/lib/context/appSession";
 import {ChallengeList} from "@/app/components/pages/challenges/ChallengeList";
 import {ChallengeType} from "@/types/challenges";
+import {ChallengeLeaderboard} from "@/app/components/pages/challenges/ChallengeLeaderboard";
 
 export default function Challenges() {
   const {globalState} = useGlobalContext();
@@ -22,7 +23,6 @@ export default function Challenges() {
   useEffect(() => {
     const checkAuth = async () => {
       const token = await isAuthenticated();
-      console.log(token);
       if (!token) {
         router.push("/");
       }
@@ -43,6 +43,7 @@ export default function Challenges() {
         globalState={globalState}
       />
       <ChallengeList challenges={challenges} />
+      <ChallengeLeaderboard />
       <Footer />
     </main>
   );
@@ -50,29 +51,29 @@ export default function Challenges() {
 
 const challenges = [
   {
-    started: false,
+    started: true,
     eligable: false,
     avatars: [""],
-    title: "Kill / Death Challenge (weekly)",
-    start_date: 1713287686,
-    end_date: 1713398400,
-    joined: false,
+    title: "Kill / Death Challenge (Current)",
+    start_date: 1711940400,
+    end_date: 1714446000,
+    joined: true,
     total_players: 7,
     image:
-      "https://dotesports.com/wp-content/uploads/2022/06/23014617/VALORANT_YR1_KeyArt_4k_3_.0-1.jpg",
+      "https://wallpapers.com/images/featured/valorant-305kescxw5dpup7y.jpg",
     current_place: 0,
   },
   {
     started: false,
     eligable: false,
     avatars: [""],
-    title: "Kill / Death Challenge (Monthly)",
-    start_date: 1713287686,
-    end_date: 1713398400,
+    title: "Kill / Death Challenge (Next Month)",
+    start_date: 1714532400,
+    end_date: 1717124400,
     joined: false,
     total_players: 7,
     image:
-      "https://wallpapers.com/images/featured/valorant-305kescxw5dpup7y.jpg",
+      "https://wallpapers.com/images/high/valorant-player-poster-xbh2vt247ch07ps6.webp",
     current_place: 0,
   },
 ] as ChallengeType[];

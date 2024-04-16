@@ -25,7 +25,6 @@ export default function Dashboard() {
   useEffect(() => {
     const checkAuth = async () => {
       const token = await isAuthenticated();
-      console.log(token);
       if (!token) {
         router.push("/");
       }
