@@ -1,9 +1,7 @@
 import type {Metadata} from "next";
 import {Inter} from "next/font/google";
 import "./globals.css";
-import Head from "next/head";
 import {ContextProvider} from "@/lib/providers/GlobalContext";
-import {useHeight} from "./hooks/useWidth";
 
 const inter = Inter({subsets: ["latin"]});
 

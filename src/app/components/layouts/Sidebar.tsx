@@ -2,7 +2,6 @@ import Image from "next/image";
 import styles from "./Layout.module.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
-  faAnglesLeft,
   faArrowRightFromBracket,
   faGears,
   faMedal,
@@ -39,10 +38,7 @@ export const Sidebar = ({
   const playerEmail = globalState.player ? globalState.player.email : "";
 
   return (
-    <article
-      className={`${styles.sidebar} ${isOpen ? "" : styles.closed}`}
-      style={{height: `${innerHeight}px`}}
-    >
+    <article className={`${styles.sidebar} ${isOpen ? "" : styles.closed}`}>
       <div className={styles.profile}>
         <div className={styles.avatar}>
           <Image

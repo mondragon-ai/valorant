@@ -203,15 +203,18 @@
 /*  3. Sidebar                                                     */
 /* =============================================================== */
 .sidebar {
-  position: absolute;
+  position: fixed;
   display: inline-flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
-  left: 0%;
-  height: auto;
-  min-height: 100vh;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  height: 100vh;
+  overflow-y: scroll;
+  min-height: calc(100vh - 20px);
   background: radial-gradient(
     100% 100% at 100% 0%,
     rgb(234, 67, 67),

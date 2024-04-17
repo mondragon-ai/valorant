@@ -39,7 +39,6 @@ export default function Dashboard() {
       className={styles.mainPage}
       style={{
         position: isOpen ? "fixed" : "relative",
-        height: `${innerHeight}px`,
       }}
     >
       <Sidebar isOpen={isOpen} globalState={globalState} />

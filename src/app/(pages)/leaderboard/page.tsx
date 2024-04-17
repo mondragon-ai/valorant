@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import styles from "../Pages.module.css";
 import {Select} from "@/app/components/ui/form/Select";
 import {useEffect, useState} from "react";
@@ -69,7 +68,7 @@ export default function Leaderboard() {
       className={styles.mainPage}
       style={{
         position: isOpen ? "fixed" : "relative",
-        height: `${innerHeight}px`,
+        minHeight: isOpen ? "calc(100vh - 20px)" : "",
       }}
     >
       <Sidebar globalState={globalState} isOpen={isOpen} />

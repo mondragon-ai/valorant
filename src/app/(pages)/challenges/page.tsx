@@ -37,7 +37,6 @@ export default function Challenges() {
       className={styles.mainPage}
       style={{
         position: isOpen ? "fixed" : "relative",
-        height: `${innerHeight}px`,
       }}
     >
       <Sidebar isOpen={isOpen} globalState={globalState} />
