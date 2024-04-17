@@ -15,6 +15,7 @@ import {useGlobalContext} from "@/lib/context/appSession";
 import {initGlobalValues} from "@/lib/data/initial";
 import {AppContextType} from "@/types/shared";
 import Cookies from "js-cookie";
+import {useHeight} from "@/app/hooks/useWidth";
 
 export const Sidebar = ({
   isOpen,
@@ -24,6 +25,7 @@ export const Sidebar = ({
   globalState: AppContextType;
 }) => {
   const {setGlobalState} = useGlobalContext();
+  const innerHeight = useHeight();
   const router = useRouter();
 
   const handleLogout = async () => {
@@ -37,7 +39,10 @@ export const Sidebar = ({
   const playerEmail = globalState.player ? globalState.player.email : "";
 
   return (
-    <article className={`${styles.sidebar} ${isOpen ? "" : styles.closed}`}>
+    <article
+      className={`${styles.sidebar} ${isOpen ? "" : styles.closed}`}
+      style={{height: `${innerHeight}px`}}
+    >
       <div className={styles.profile}>
         <div className={styles.avatar}>
           <Image

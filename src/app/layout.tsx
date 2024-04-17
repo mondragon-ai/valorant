@@ -3,6 +3,7 @@ import {Inter} from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
 import {ContextProvider} from "@/lib/providers/GlobalContext";
+import {useHeight} from "./hooks/useWidth";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -17,6 +18,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const innerHeight = useHeight();
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <head>
@@ -25,9 +27,13 @@ export default function RootLayout({
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
         />
       </head>
-      <body className={inter.className} suppressHydrationWarning={true}>
+      <body
+        className={inter.className}
+        suppressHydrationWarning={true}
+        style={{height: `${innerHeight}px`}}
+      >
         <ContextProvider>
-          <main>{children}</main>
+          <main style={{height: `${innerHeight}px`}}>{children}</main>
         </ContextProvider>
       </body>
     </html>

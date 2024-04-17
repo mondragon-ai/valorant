@@ -12,27 +12,28 @@ export function ContextProvider({children}: {children: React.ReactNode}) {
     const sessionState = (getItem("player") as AppContextType) || state;
 
     setState({
-      ...state,
       ...sessionState,
     });
+    console.log({sessionState});
   }, []);
 
   const setGlobalState = (data: AppContextType) => {
     const sessionState = (getItem("player") as AppContextType) || state;
 
     setState({
-      ...state,
       ...sessionState,
       ...data,
     });
     saveItem("player", {
-      ...state,
       ...sessionState,
       ...data,
     });
+    console.log({data});
   };
 
   const globalState = (getItem("player") as AppContextType) || state;
+
+  console.log({globalState});
 
   return (
     <Context.Provider value={{globalState: globalState, setGlobalState}}>

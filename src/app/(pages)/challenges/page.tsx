@@ -10,9 +10,11 @@ import {useGlobalContext} from "@/lib/context/appSession";
 import {ChallengeList} from "@/app/components/pages/challenges/ChallengeList";
 import {ChallengeType} from "@/types/challenges";
 import {ChallengeLeaderboard} from "@/app/components/pages/challenges/ChallengeLeaderboard";
+import {useHeight} from "@/app/hooks/useWidth";
 
 export default function Challenges() {
   const {globalState} = useGlobalContext();
+  const innerHeight = useHeight();
   const router = useRouter();
   const [isOpen, setOpen] = useState(false);
 
@@ -33,7 +35,10 @@ export default function Challenges() {
   return (
     <main
       className={styles.mainPage}
-      style={{position: isOpen ? "fixed" : "relative"}}
+      style={{
+        position: isOpen ? "fixed" : "relative",
+        height: `${innerHeight}px`,
+      }}
     >
       <Sidebar isOpen={isOpen} globalState={globalState} />
       <PageHeader

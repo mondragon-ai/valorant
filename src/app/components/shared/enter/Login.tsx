@@ -40,6 +40,7 @@ export default function LoginForm({
         email: "",
         remember: false,
       });
+      console.log(data);
       setGlobalState({...globalState, player: data.player});
       Cookies.set("devve_jwt", data.token);
       router.push("/dashboard");

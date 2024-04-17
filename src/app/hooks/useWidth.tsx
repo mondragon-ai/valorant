@@ -10,3 +10,13 @@ export const useWidth = () => {
   }, []);
   return innerWidth;
 };
+
+export const useHeight = () => {
+  const [innerHeight, setInnerHeight] = useState(0);
+  useEffect(() => {
+    if (window) {
+      setInnerHeight(window.innerHeight);
+    }
+  }, []);
+  return innerHeight;
+};

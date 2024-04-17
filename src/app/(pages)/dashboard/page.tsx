@@ -12,9 +12,11 @@ import {Sidebar} from "@/app/components/layouts/Sidebar";
 import {useRouter} from "next/navigation";
 import {isAuthenticated} from "@/lib/auth";
 import {useGlobalContext} from "@/lib/context/appSession";
+import {useHeight} from "@/app/hooks/useWidth";
 
 export default function Dashboard() {
   const {globalState} = useGlobalContext();
+  const innerHeight = useHeight();
   const router = useRouter();
   const [isOpen, setOpen] = useState(false);
 
@@ -35,7 +37,10 @@ export default function Dashboard() {
   return (
     <main
       className={styles.mainPage}
-      style={{position: isOpen ? "fixed" : "relative"}}
+      style={{
+        position: isOpen ? "fixed" : "relative",
+        height: `${innerHeight}px`,
+      }}
     >
       <Sidebar isOpen={isOpen} globalState={globalState} />
       <PageHeader

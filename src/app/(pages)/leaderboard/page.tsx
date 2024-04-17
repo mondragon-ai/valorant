@@ -12,6 +12,7 @@ import {Sidebar} from "@/app/components/layouts/Sidebar";
 import {useRouter} from "next/navigation";
 import {isAuthenticated} from "@/lib/auth";
 import {useGlobalContext} from "@/lib/context/appSession";
+import {useHeight} from "@/app/hooks/useWidth";
 
 const regions = [
   {label: "North America", value: "na1"},
@@ -38,6 +39,7 @@ const seasons = [
 ];
 export default function Leaderboard() {
   const {globalState} = useGlobalContext();
+  const innerHeight = useHeight();
   const router = useRouter();
   const [isLoading, setLoading] = useState(false);
   const [isOpen, setOpen] = useState(false);
@@ -65,7 +67,10 @@ export default function Leaderboard() {
   return (
     <main
       className={styles.mainPage}
-      style={{position: isOpen ? "fixed" : "relative"}}
+      style={{
+        position: isOpen ? "fixed" : "relative",
+        height: `${innerHeight}px`,
+      }}
     >
       <Sidebar globalState={globalState} isOpen={isOpen} />
       <PageHeader
