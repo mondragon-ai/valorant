@@ -8,7 +8,7 @@ const inter = Inter({subsets: ["latin"]});
 export const metadata: Metadata = {
   title: "Valorant Tracker",
   description:
-    "Devve Games Valorant tracker that rewards players for progress and performance.",
+    "--- Games Valorant tracker that rewards players for progress and performance.",
 };
 
 export default function RootLayout({
