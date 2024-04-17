@@ -1,7 +1,17 @@
 import axios, {AxiosRequestConfig} from "axios";
-const URL = true
+import Cookies from "js-cookie";
+
+const URL = false
   ? "https://us-central1-devve-cod.cloudfunctions.net"
   : "http://127.0.0.1:5001/devve-cod/us-central1";
+
+axios.interceptors.request.use((config) => {
+  const jwtCookie = Cookies.get("devve_jwt");
+  if (jwtCookie) {
+    config.headers["Cookie"] = `devve_jwt=${jwtCookie}`;
+  }
+  return config;
+});
 
 export const serverApiRequest = async (
   resource: string,

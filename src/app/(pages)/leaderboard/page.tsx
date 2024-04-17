@@ -1,7 +1,7 @@
 "use client";
 import styles from "../Pages.module.css";
 import {Select} from "@/app/components/ui/form/Select";
-import {useEffect, useState} from "react";
+import {MouseEvent, useEffect, useState} from "react";
 import {Leaderboards} from "@/app/components/pages/leaderboards/Leaderboards";
 import {Button} from "@/app/components/ui/Button";
 import {Pagination} from "@/app/components/pages/leaderboards/Pagination";
@@ -12,6 +12,7 @@ import {useRouter} from "next/navigation";
 import {isAuthenticated} from "@/lib/auth";
 import {useGlobalContext} from "@/lib/context/appSession";
 import {useHeight} from "@/app/hooks/useWidth";
+import {serverApiRequest} from "@/third-party-apis/server";
 
 const regions = [
   {label: "North America", value: "na1"},
@@ -37,10 +38,10 @@ const seasons = [
   {label: "EPISODE 3: ACT 3", value: "23n8jdm3-1k4h-a340-6e54-9283j4n93m8d"},
 ];
 export default function Leaderboard() {
-  const {globalState} = useGlobalContext();
-  const innerHeight = useHeight();
+  const {globalState, setGlobalState} = useGlobalContext();
   const router = useRouter();
   const [isLoading, setLoading] = useState(false);
+  const [err, setError] = useState("");
   const [isOpen, setOpen] = useState(false);
 
   useEffect(() => {
@@ -55,12 +56,37 @@ export default function Leaderboard() {
   }, []);
 
   const [args, setArgs] = useState({
-    region: "na1",
+    region: "ap",
     season: "22d10d66-4d2a-a340-6c54-408c7bd53807",
   });
 
   const handleMenu = () => {
     setOpen(!isOpen);
+  };
+
+  const initFetch = async (
+    e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
+  ) => {
+    e.preventDefault();
+    setLoading(true);
+    const {status, data} = await serverApiRequest(
+      `/leaderboards/ranked/${args.region}/${args.season}`,
+      "GET",
+      null,
+    );
+    if (status === 200) {
+      console.log(data);
+      setError("");
+      setGlobalState({...globalState, leaderboards: data.leaderboard});
+    } else if (status === 500) {
+      setError("Try again later");
+    } else if (status === 403 || status === 401) {
+      setError("Unathorized");
+      router.push("/");
+    } else if (status > 403) {
+      setError("Problem fetching data");
+    }
+    setLoading(false);
   };
 
   return (
@@ -94,7 +120,11 @@ export default function Leaderboard() {
           formData={args}
           setFormData={setArgs}
         />
-        <Button text={"Show Stats"} callback={() => {}} isLoading={isLoading} />
+        <Button
+          text={"Show Stats"}
+          callback={(e) => initFetch(e)}
+          isLoading={isLoading}
+        />
         <span style={{padding: "1rem 0 5px 0"}}>
           Last updated: 9 minutes ago
         </span>

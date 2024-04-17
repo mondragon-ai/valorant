@@ -1,3 +1,5 @@
+import {RankedLeaderboardResponse} from "./leaderboards";
+
 export type AppContextType = {
   player: {
     id: string;
@@ -5,6 +7,7 @@ export type AppContextType = {
     name: string;
     first_name: string;
   };
+  leaderboards: RankedLeaderboardResponse;
 };
 
 export type ContextType = {
