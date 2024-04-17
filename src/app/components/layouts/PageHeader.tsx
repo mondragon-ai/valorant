@@ -1,6 +1,5 @@
 // import Image from "next/image";
 "use client";
-import {useState} from "react";
 import styles from "./Layout.module.css";
 import {AppContextType} from "@/types/shared";
 
