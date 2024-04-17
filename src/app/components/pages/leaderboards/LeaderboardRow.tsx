@@ -2,9 +2,14 @@ import Image from "next/image";
 import styles from "../Pages.module.css";
 import {LeaderRowType} from "@/types/players";
 import {countingNumberWithSuffix} from "@/utils/format";
+import {RankedLeaderboardPlayers} from "@/types/leaderboards";
 
-export const LeaderboardRow = ({leader}: {leader: LeaderRowType}) => {
-  const even = leader.rank % 2 == 0;
+export const LeaderboardRow = ({
+  leader,
+}: {
+  leader: RankedLeaderboardPlayers;
+}) => {
+  const even = leader.leaderboardRank % 2 == 0;
   return (
     <div
       className={styles.leaderboardRow}
@@ -16,23 +21,23 @@ export const LeaderboardRow = ({leader}: {leader: LeaderRowType}) => {
           marginLeft: "1rem",
           justifyContent: "center",
           borderLeft:
-            leader.rank == 1
+            leader.leaderboardRank == 1
               ? "2px solid gold"
-              : leader.rank == 2
+              : leader.leaderboardRank == 2
               ? "2px solid silver"
-              : leader.rank == 3
+              : leader.leaderboardRank == 3
               ? "2px solid brown"
               : "",
         }}
       >
-        <h4>{leader.rank}</h4>
-        <span>{countingNumberWithSuffix(leader.rank)}</span>
+        <h4>{leader.leaderboardRank}</h4>
+        <span>{countingNumberWithSuffix(leader.leaderboardRank)}</span>
       </div>
 
       <div style={{width: "55%"}}>
         <div className={styles.playerItem}>
-          <h5>{leader.player}</h5>
-          <span>#{leader.tag}</span>
+          <h5>{leader.gameName}</h5>
+          <span>#{leader.tagLine}</span>
         </div>
       </div>
 
@@ -43,8 +48,15 @@ export const LeaderboardRow = ({leader}: {leader: LeaderRowType}) => {
           alignItems: "center",
         }}
       >
-        <Image src={leader.image} alt={""} height={1000} width={1000} />
-        <h5>{leader.rating}</h5>
+        <Image
+          src={
+            "https://tiermaker.com/images/chart/chart/valorant-ranks-iron-to-radiant-1517264/radiantpng.png"
+          }
+          alt={""}
+          height={1000}
+          width={1000}
+        />
+        <h5>{leader.rankedRating}</h5>
       </div>
     </div>
   );

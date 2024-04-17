@@ -1,6 +1,6 @@
 export type RankedLeaderboardResponse = {
   actId: string;
-  players: Player[];
+  players: RankedLeaderboardPlayers[];
   totalPlayers: number;
   immortalStartingPage: number;
   immortalStartingIndex: number;
@@ -11,7 +11,7 @@ export type RankedLeaderboardResponse = {
   shard: string;
 };
 
-type Player = {
+export type RankedLeaderboardPlayers = {
   puuid: string;
   gameName: string;
   tagLine: string;

@@ -6,12 +6,15 @@ import {Button} from "../../ui/Button";
 import {useRouter} from "next/navigation";
 import {serverApiRequest} from "@/third-party-apis/server";
 import {checkPasswordStrength, validateEmail} from "@/utils/forms";
+import Cookies from "js-cookie";
+import {useGlobalContext} from "@/lib/context/appSession";
 
 export default function RegisterForm({
   setForm,
 }: {
   setForm: Dispatch<SetStateAction<boolean>>;
 }) {
+  const {globalState, setGlobalState} = useGlobalContext();
   const [isLoading, setLoading] = useState(false);
   const router = useRouter();
   const [error, setError] = useState("");
@@ -33,7 +36,7 @@ export default function RegisterForm({
       formData.password == formData.confirm_password &&
       validateEmail(formData.email)
     ) {
-      const {status} = await serverApiRequest(
+      const {status, data} = await serverApiRequest(
         "/auth/register",
         "POST",
         formData,
@@ -46,6 +49,9 @@ export default function RegisterForm({
           first_name: "",
           remember: false,
         });
+        setGlobalState({...globalState, player: data.player});
+        Cookies.set("devve_jwt", data.token);
+        Cookies.set("devve_refresh_jwt", data.refresh_token);
         router.push("/dashboard");
       } else if (status === 500) {
         setError("Try again ater");

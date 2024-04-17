@@ -4,23 +4,22 @@ import styles from "../Pages.module.css";
 import {faAnglesLeft, faAnglesRight} from "@fortawesome/free-solid-svg-icons";
 import {useState} from "react";
 
-export const Pagination = () => {
+export const Pagination = ({
+  next,
+  prev,
+}: {
+  prev: () => void;
+  next: () => void;
+}) => {
   const [currentPage, setCurrentPage] = useState(1);
 
-  const handlePreviousPage = () => {
-    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
-  };
-
-  const handleNextPage = () => {
-    setCurrentPage((prevPage) => prevPage + 1);
-  };
   return (
     <div className={styles.paginationWrapper}>
       <div>
-        <div style={{marginRight: "10px"}} onClick={handlePreviousPage}>
+        <div style={{marginRight: "10px"}} onClick={prev}>
           <FontAwesomeIcon icon={faAnglesLeft} />
         </div>
-        <div style={{marginLeft: "10px"}} onClick={handleNextPage}>
+        <div style={{marginLeft: "10px"}} onClick={next}>
           <FontAwesomeIcon icon={faAnglesRight} />
         </div>
       </div>

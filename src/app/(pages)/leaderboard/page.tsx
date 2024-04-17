@@ -11,31 +11,25 @@ import {Sidebar} from "@/app/components/layouts/Sidebar";
 import {useRouter} from "next/navigation";
 import {isAuthenticated} from "@/lib/auth";
 import {useGlobalContext} from "@/lib/context/appSession";
-import {useHeight} from "@/app/hooks/useWidth";
+// import {useHeight} from "@/app/hooks/useWidth";
 import {serverApiRequest} from "@/third-party-apis/server";
+import {
+  RankedLeaderboardPlayers,
+  RankedLeaderboardResponse,
+} from "@/types/leaderboards";
 
 const regions = [
-  {label: "North America", value: "na1"},
-  {label: "Europe", value: "eu1"},
+  {label: "North America", value: "na"},
+  {label: "Europe", value: "eu"},
   {label: "Korea", value: "kr"},
   {label: "Brazil", value: "br"},
   {label: "Latin America", value: "latam"},
-  {label: "Japan", value: "jp"},
   {label: "Oceania", value: "ap"},
-  {label: "Turkey", value: "tr"},
-  {label: "Russia", value: "ru"},
-  {label: "South East Asia", value: "sea"},
 ];
 
 const seasons = [
-  {label: "EPISODE 2: ACT 1", value: "22d10d66-4d2a-a340-6c54-408c7bd53807"},
-  {label: "EPISODE 2: ACT 2", value: "239u8y23-3rn3-a340-6c54-024ry229378y"},
-  {label: "EPISODE 2: ACT 3", value: "ab89d766-4d2a-a340-6c54-123a5bf65892"},
-  {label: "EPISODE 2: ACT 4", value: "327dj62a-3r2s-a340-6c54-27s6hd82m363"},
-  {label: "EPISODE 2: ACT 5", value: "9b23u74d-1k0r-a340-6d54-234t5y327894"},
-  {label: "EPISODE 3: ACT 1", value: "e728u3d7-7r2k-a340-6b54-183m7t6392kd"},
-  {label: "EPISODE 3: ACT 2", value: "5b82d83u-0r23-a340-6f54-47t2i93nd834"},
-  {label: "EPISODE 3: ACT 3", value: "23n8jdm3-1k4h-a340-6e54-9283j4n93m8d"},
+  {label: "EPISODE 8: ACT 2", value: "22d10d66-4d2a-a340-6c54-408c7bd53807"},
+  {label: "EPISODE 8: ACT 4", value: "843cc465-4f0a-7466-ccda-19a427f8e478"},
 ];
 export default function Leaderboard() {
   const {globalState, setGlobalState} = useGlobalContext();
@@ -43,6 +37,10 @@ export default function Leaderboard() {
   const [isLoading, setLoading] = useState(false);
   const [err, setError] = useState("");
   const [isOpen, setOpen] = useState(false);
+  const [index, setIndex] = useState(0);
+  const [leaderboard, setLeaderboard] = useState(
+    globalState.leaderboards.players,
+  );
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -75,9 +73,59 @@ export default function Leaderboard() {
       null,
     );
     if (status === 200) {
-      console.log(data);
+      const leaderboard = data as {leaderboard: RankedLeaderboardResponse};
+      setLeaderboard(leaderboard.leaderboard.players);
+      setIndex(50);
       setError("");
       setGlobalState({...globalState, leaderboards: data.leaderboard});
+    } else if (status === 500) {
+      setError("Try again later");
+    } else if (status === 403 || status === 401) {
+      setError("Unathorized");
+      router.push("/");
+    } else if (status > 403) {
+      setError("Problem fetching data");
+    }
+    setLoading(false);
+  };
+
+  const nextFetch = async () => {
+    setLoading(true);
+    const {status, data} = await serverApiRequest(
+      `/leaderboards/ranked/${args.region}/${args.season}/next/${index}`,
+      "GET",
+      null,
+    );
+    if (status === 200) {
+      const leaderboard = data as {leaderboard: RankedLeaderboardResponse};
+      setLeaderboard(leaderboard.leaderboard.players);
+      setGlobalState({...globalState, leaderboards: data.leaderboard});
+      setIndex(index + 50);
+      setError("");
+    } else if (status === 500) {
+      setError("Try again later");
+    } else if (status === 403 || status === 401) {
+      setError("Unathorized");
+      router.push("/");
+    } else if (status > 403) {
+      setError("Problem fetching data");
+    }
+    setLoading(false);
+  };
+
+  const prevFetch = async () => {
+    setLoading(true);
+    const {status, data} = await serverApiRequest(
+      `/leaderboards/ranked/${args.region}/${args.season}/prev/${index}`,
+      "GET",
+      null,
+    );
+    if (status === 200) {
+      const leaderboard = data as {leaderboard: RankedLeaderboardResponse};
+      setLeaderboard(leaderboard.leaderboard.players);
+      setGlobalState({...globalState, leaderboards: data.leaderboard});
+      setIndex(index - 50);
+      setError("");
     } else if (status === 500) {
       setError("Try again later");
     } else if (status === 403 || status === 401) {
@@ -134,8 +182,8 @@ export default function Leaderboard() {
         </h5>
       </div>
 
-      <Leaderboards />
-      <Pagination />
+      <Leaderboards leaderboard={leaderboard} />
+      <Pagination next={nextFetch} prev={prevFetch} />
       <Footer />
     </main>
   );

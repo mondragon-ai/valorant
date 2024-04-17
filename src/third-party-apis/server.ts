@@ -1,17 +1,9 @@
+import {getRefreshTokenFromCookie, getTokenFromCookie} from "@/lib/auth";
 import axios, {AxiosRequestConfig} from "axios";
-import Cookies from "js-cookie";
 
 const URL = false
   ? "https://us-central1-devve-cod.cloudfunctions.net"
   : "http://127.0.0.1:5001/devve-cod/us-central1";
-
-axios.interceptors.request.use((config) => {
-  const jwtCookie = Cookies.get("devve_jwt");
-  if (jwtCookie) {
-    config.headers["Cookie"] = `devve_jwt=${jwtCookie}`;
-  }
-  return config;
-});
 
 export const serverApiRequest = async (
   resource: string,
@@ -22,13 +14,19 @@ export const serverApiRequest = async (
   status: 200 | 201 | 202 | 204 | 400 | 401 | 403 | 404 | 409 | 422 | 429 | 500;
   data: any;
 }> => {
+  const jwtCookie = await getTokenFromCookie();
+  const jwtRefreshCookie = await getRefreshTokenFromCookie();
   let options: AxiosRequestConfig<any> = {
     method: method === "" ? "GET" : method,
     url: URL + resource,
     headers: {
       "Content-Type": "application/json",
+      DEVVE_JWT: jwtCookie,
+      DEVVE_JWT_REFRESH: jwtRefreshCookie,
     },
   };
+
+  console.log(options);
 
   if (data) {
     options = {

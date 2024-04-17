@@ -43,6 +43,7 @@ export default function LoginForm({
       console.log(data);
       setGlobalState({...globalState, player: data.player});
       Cookies.set("devve_jwt", data.token);
+      Cookies.set("devve_refresh_jwt", data.refresh_token);
       router.push("/dashboard");
     } else if (status === 500) {
       setError("Try again ater");
