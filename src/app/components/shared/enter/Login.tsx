@@ -94,7 +94,10 @@ export default function LoginForm({
         <span>
           {" "}
           Not a member?{" "}
-          <span style={{color: "white"}} onClick={() => setForm(false)}>
+          <span
+            style={{color: "white", cursor: "pointer"}}
+            onClick={() => setForm(false)}
+          >
             Sign up
           </span>
         </span>

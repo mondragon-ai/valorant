@@ -104,7 +104,7 @@ export const Sidebar = ({
               <h5>Settings</h5>
             </a>
           </li>
-          <li style={{marginBottom: "10px"}}>
+          <li style={{marginBottom: "10px", cursor: "pointer"}}>
             <a onClick={() => handleLogout()}>
               <div className={styles.icon}>
                 <FontAwesomeIcon

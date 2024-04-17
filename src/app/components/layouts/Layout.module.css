@@ -406,8 +406,16 @@
   margin-right: 0.5rem;
 }
 
+.sidebar .nav ul li:hover path {
+  fill: #f9f9f9;
+}
+
 .sidebar .nav ul li a h5 {
   font-size: 15px;
+}
+
+.sidebar .nav ul li:hover a h5 {
+  color: #f9f9f9;
 }
 
 /* Computer (Mac 13-inch to Mac 16-inch) */

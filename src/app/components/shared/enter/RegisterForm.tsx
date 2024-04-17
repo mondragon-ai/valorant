@@ -112,7 +112,10 @@ export default function RegisterForm({
       <span>
         {" "}
         Already a member?{" "}
-        <span style={{color: "white"}} onClick={() => setForm(true)}>
+        <span
+          style={{color: "white", cursor: "pointer"}}
+          onClick={() => setForm(true)}
+        >
           Sign In
         </span>
       </span>
