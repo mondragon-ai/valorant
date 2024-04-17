@@ -125,6 +125,12 @@
   text-align: center;
 }
 
+.disabled {
+  background: #1c1c1c;
+  box-shadow: none;
+  color: rgb(196, 196, 196);
+}
+
 .flashSlide::before {
   content: "";
   position: absolute;

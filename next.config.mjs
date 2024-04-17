@@ -30,6 +30,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "valorantstats.xyz",
       },
+      {
+        protocol: "https",
+        hostname: "*.pinimg.com",
+      },
     ],
   },
 };

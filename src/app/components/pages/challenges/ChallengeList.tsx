@@ -6,7 +6,7 @@ export const ChallengeList = ({challenges}: {challenges: ChallengeType[]}) => {
   return (
     <section
       className={styles.topAgentsWrapper}
-      style={{paddingBottom: "2rem"}}
+      style={{paddingBottom: "0rem"}}
     >
       <div className={styles.agentContainer}>
         {challenges &&

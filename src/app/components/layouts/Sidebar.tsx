@@ -82,7 +82,7 @@ export const Sidebar = ({
             </a>
           </li>
         </ul>
-        <ul>
+        <ul style={{marginBottom: "30px"}}>
           <li style={{marginBottom: "10px"}}>
             <a href="/">
               <div className={styles.icon}>

@@ -1,10 +1,35 @@
 import {ChallengeLeaderType} from "@/types/challenges";
 import styles from "../Pages.module.css";
 import {ChallengeLeaderRow} from "./ChallengeLeaderRow";
+import Image from "next/image";
 
 export const ChallengeLeaderboard = () => {
   return (
     <div className={styles.leaderboardWrapper} style={{paddingBottom: "2rem"}}>
+      <div className={styles.currentLeader}>
+        <div className={styles.wreath}>
+          <Image
+            src={
+              "https://i.pinimg.com/originals/3d/fc/5d/3dfc5d8a2fbd83980178e84e9837571c.png"
+            }
+            alt={""}
+            width={1000}
+            height={1000}
+          />
+        </div>
+        {/* <div >
+          <Image
+            src={
+              "https://i.pinimg.com/originals/3d/fc/5d/3dfc5d8a2fbd83980178e84e9837571c.png"
+            }
+            alt={""}
+            width={1000}
+            height={1000}
+          />
+        </div> */}
+        <h4>{leaders[0].player}</h4>
+        <h5>{`${leaders[0].kills} / ${leaders[0].deaths}`}</h5>
+      </div>
       <header>
         <h6 style={{width: "15%", marginLeft: "1rem"}}>Rank</h6>
         <h6 style={{width: "55%", padding: "0.5rem 0"}}>Player</h6>

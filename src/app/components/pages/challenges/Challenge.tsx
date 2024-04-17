@@ -8,6 +8,8 @@ import {
   getDayOfMonthFromTimestamp,
   getMonthAbbreviationFromTimestamp,
 } from "@/utils/dates";
+import {Button} from "../../ui/Button";
+import {MouseEvent, useState} from "react";
 
 const avatars = [
   "https://static.valorantstats.xyz/agent-headshots/sova-headshot.png",
@@ -21,6 +23,7 @@ const avatars = [
   "https://static.valorantstats.xyz/agent-headshots/viper-headshot.png",
 ];
 export const Challenge = ({challenge}: {challenge: ChallengeType}) => {
+  const [isLoading, setLoading] = useState(false);
   const arr = new Array(
     challenge.total_players < 10 ? challenge.total_players : 9,
   ).fill(null);
@@ -79,8 +82,9 @@ export const Challenge = ({challenge}: {challenge: ChallengeType}) => {
           </div>
         </div>
       </div>
+
       <div className={styles.challengeProgress}>
-        <header>
+        <header style={{padding: "1.5rem 1rem 0.4rem 1rem"}}>
           <h6>Challenge Progress</h6>
           <span>Last Updated: 9 minutes ago</span>
         </header>
@@ -98,10 +102,34 @@ export const Challenge = ({challenge}: {challenge: ChallengeType}) => {
             </div>
             <div className={styles.icon}></div>
           </div>
+
+          <div className={styles.status}>
+            <div>
+              <span>You are in #130 place, ahead of 80% of players</span>
+            </div>
+          </div>
+
           <div className={styles.progressBar}>
             <div>
               <div style={{width: `${percent > 0 ? percent : 0}%`}}></div>
             </div>
+          </div>
+
+          <div className={styles.action}>
+            <Button
+              isDisabled={
+                challenge.started ? true : challenge.joined ? true : false
+              }
+              text={
+                challenge.started
+                  ? "Unable to Join"
+                  : challenge.joined
+                  ? "Joined"
+                  : "Join Now"
+              }
+              callback={(e) => {}}
+              isLoading={isLoading}
+            />
           </div>
         </div>
       </div>

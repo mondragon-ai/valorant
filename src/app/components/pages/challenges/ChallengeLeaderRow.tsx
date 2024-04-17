@@ -34,7 +34,7 @@ export const ChallengeLeaderRow = ({leader}: {leader: ChallengeLeaderType}) => {
           <div style={{width: "55%"}}>
             <div className={styles.playerItem}>
               <h5>{leader.player}</h5>
-              <span>#{leader.tag}</span>
+              <span style={{margin: "5px 0"}}>#{leader.tag}</span>
             </div>
           </div>
 
