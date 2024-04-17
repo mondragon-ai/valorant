@@ -18,7 +18,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const innerHeight = useHeight();
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <head>
@@ -27,11 +26,7 @@ export default function RootLayout({
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
         />
       </head>
-      <body
-        className={inter.className}
-        suppressHydrationWarning={true}
-        style={{height: `${innerHeight}px`}}
-      >
+      <body className={inter.className} suppressHydrationWarning={true}>
         <ContextProvider>
           <main style={{height: `${innerHeight}px`}}>{children}</main>
         </ContextProvider>

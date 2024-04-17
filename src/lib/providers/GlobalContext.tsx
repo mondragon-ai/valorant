@@ -14,7 +14,6 @@ export function ContextProvider({children}: {children: React.ReactNode}) {
     setState({
       ...sessionState,
     });
-    console.log({sessionState});
   }, []);
 
   const setGlobalState = (data: AppContextType) => {
@@ -28,12 +27,9 @@ export function ContextProvider({children}: {children: React.ReactNode}) {
       ...sessionState,
       ...data,
     });
-    console.log({data});
   };
 
   const globalState = (getItem("player") as AppContextType) || state;
-
-  console.log({globalState});
 
   return (
     <Context.Provider value={{globalState: globalState, setGlobalState}}>
