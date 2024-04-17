@@ -14,7 +14,7 @@ import {useGlobalContext} from "@/lib/context/appSession";
 import {initGlobalValues} from "@/lib/data/initial";
 import {AppContextType} from "@/types/shared";
 import Cookies from "js-cookie";
-import {useHeight} from "@/app/hooks/useWidth";
+import {useWidth} from "@/app/hooks/useWidth";
 
 export const Sidebar = ({
   isOpen,
@@ -24,7 +24,7 @@ export const Sidebar = ({
   globalState: AppContextType;
 }) => {
   const {setGlobalState} = useGlobalContext();
-  const innerHeight = useHeight();
+  const innerWidth = useWidth();
   const router = useRouter();
 
   const handleLogout = async () => {
@@ -61,7 +61,10 @@ export const Sidebar = ({
           <li>
             <a href="/dashboard">
               <div className={styles.icon}>
-                <FontAwesomeIcon icon={faAddressCard} />
+                <FontAwesomeIcon
+                  icon={faAddressCard}
+                  size={innerWidth < 720 ? "1x" : "2x"}
+                />
               </div>
               <h5>Profile</h5>
             </a>
@@ -69,7 +72,10 @@ export const Sidebar = ({
           <li>
             <a href="/leaderboard">
               <div className={styles.icon}>
-                <FontAwesomeIcon icon={faMedal} />
+                <FontAwesomeIcon
+                  icon={faMedal}
+                  size={innerWidth < 720 ? "1x" : "2x"}
+                />
               </div>
               <h5>Leaderboard</h5>
             </a>
@@ -77,17 +83,23 @@ export const Sidebar = ({
           <li>
             <a href="/challenges">
               <div className={styles.icon}>
-                <FontAwesomeIcon icon={faTrophy} />
+                <FontAwesomeIcon
+                  icon={faTrophy}
+                  size={innerWidth < 720 ? "1x" : "2x"}
+                />
               </div>
               <h5>Challenges</h5>
             </a>
           </li>
         </ul>
-        <ul style={{marginBottom: "30px"}}>
+        <ul style={{marginBottom: innerWidth < 720 ? "30px" : ""}}>
           <li style={{marginBottom: "10px"}}>
             <a href="/">
               <div className={styles.icon}>
-                <FontAwesomeIcon icon={faGears} />
+                <FontAwesomeIcon
+                  icon={faGears}
+                  size={innerWidth < 720 ? "1x" : "2x"}
+                />
               </div>
               <h5>Settings</h5>
             </a>
@@ -95,7 +107,10 @@ export const Sidebar = ({
           <li style={{marginBottom: "10px"}}>
             <a onClick={() => handleLogout()}>
               <div className={styles.icon}>
-                <FontAwesomeIcon icon={faArrowRightFromBracket} />
+                <FontAwesomeIcon
+                  icon={faArrowRightFromBracket}
+                  size={innerWidth < 720 ? "1x" : "2x"}
+                />
               </div>
               <h5>Logout</h5>
             </a>

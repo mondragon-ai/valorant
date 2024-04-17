@@ -40,15 +40,17 @@ export default function Challenges() {
       }}
     >
       <Sidebar isOpen={isOpen} globalState={globalState} />
-      <PageHeader
-        title="Challenges"
-        openMenu={handleMenu}
-        isOpen={isOpen}
-        globalState={globalState}
-      />
-      <ChallengeList challenges={challenges} />
-      <ChallengeLeaderboard />
-      <Footer />
+      <div className={styles.mainSection}>
+        <PageHeader
+          title="Challenges"
+          openMenu={handleMenu}
+          isOpen={isOpen}
+          globalState={globalState}
+        />
+        <ChallengeList challenges={challenges} />
+        <ChallengeLeaderboard />
+        <Footer />
+      </div>
     </main>
   );
 }

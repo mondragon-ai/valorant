@@ -1,7 +1,7 @@
 import styles from "./Layout.module.css";
 export const Footer = () => {
   return (
-    <footer>
+    <footer style={{width: "100%"}}>
       <div className={styles.footerContainer}>
         <svg
           style={{margin: "1rem 0"}}

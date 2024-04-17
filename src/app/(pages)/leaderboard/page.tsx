@@ -146,45 +146,47 @@ export default function Leaderboard() {
       }}
     >
       <Sidebar globalState={globalState} isOpen={isOpen} />
-      <PageHeader
-        openMenu={handleMenu}
-        isOpen={isOpen}
-        title="Leaderboard"
-        globalState={globalState}
-      />
+      <div className={styles.mainSection}>
+        <PageHeader
+          openMenu={handleMenu}
+          isOpen={isOpen}
+          title="Leaderboard"
+          globalState={globalState}
+        />
 
-      <div className={styles.selectHeader}>
-        <Select
-          name={"region"}
-          label={"Region"}
-          options={regions}
-          formData={args}
-          setFormData={setArgs}
-        />
-        <Select
-          name={"season"}
-          label={"Season"}
-          options={seasons}
-          formData={args}
-          setFormData={setArgs}
-        />
-        <Button
-          text={"Show Stats"}
-          callback={(e) => initFetch(e)}
-          isLoading={isLoading}
-        />
-        <span style={{padding: "1rem 0 5px 0"}}>
-          Last updated: 9 minutes ago
-        </span>
-        <h5 style={{padding: "0 0 15px 0"}}>
-          North America Competitive Ranked Rating for Episode 2 - Act 1
-          Leaderboard
-        </h5>
+        <div className={styles.selectHeader}>
+          <Select
+            name={"region"}
+            label={"Region"}
+            options={regions}
+            formData={args}
+            setFormData={setArgs}
+          />
+          <Select
+            name={"season"}
+            label={"Season"}
+            options={seasons}
+            formData={args}
+            setFormData={setArgs}
+          />
+          <Button
+            text={"Show Stats"}
+            callback={(e) => initFetch(e)}
+            isLoading={isLoading}
+          />
+          <span style={{padding: "1rem 0 5px 0"}}>
+            Last updated: 9 minutes ago
+          </span>
+          <h5 style={{padding: "0 0 15px 0"}}>
+            North America Competitive Ranked Rating for Episode 2 - Act 1
+            Leaderboard
+          </h5>
+        </div>
+
+        <Leaderboards leaderboard={leaderboard} />
+        <Pagination next={nextFetch} prev={prevFetch} />
+        <Footer />
       </div>
-
-      <Leaderboards leaderboard={leaderboard} />
-      <Pagination next={nextFetch} prev={prevFetch} />
-      <Footer />
     </main>
   );
 }

@@ -26,8 +26,6 @@ export const serverApiRequest = async (
     },
   };
 
-  console.log(options);
-
   if (data) {
     options = {
       ...options,

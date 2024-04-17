@@ -42,18 +42,20 @@ export default function Dashboard() {
       }}
     >
       <Sidebar isOpen={isOpen} globalState={globalState} />
-      <PageHeader
-        title="Performance"
-        openMenu={handleMenu}
-        isOpen={isOpen}
-        globalState={globalState}
-      />
-      <RecentStats />
-      <MainStats />
-      <TopAgents />
-      <WeaponsRadar />
-      <RecentMatches />
-      <Footer />
+      <div className={styles.mainSection}>
+        <PageHeader
+          title="Performance"
+          openMenu={handleMenu}
+          isOpen={isOpen}
+          globalState={globalState}
+        />
+        <RecentStats />
+        <MainStats />
+        <TopAgents />
+        <WeaponsRadar />
+        <RecentMatches />
+        <Footer />
+      </div>
     </main>
   );
 }

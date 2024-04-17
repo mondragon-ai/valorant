@@ -40,6 +40,38 @@
   width: 100%;
 }
 
+/* Computer (Mac 13-inch to Mac 16-inch) */
+@media only screen and (min-width: 1280px) and (max-width: 3072px) {
+  .bkgImg {
+    position: relative;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 45%;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #292520;
+  }
+  .bkgImg img {
+    height: 100%;
+    width: auto;
+    max-height: 100vh;
+  }
+  .mainSection {
+    height: 100%;
+    min-height: 100vh;
+    width: 55%;
+    position: relative;
+    padding: 1rem 4rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 /* ================================================================================ */
 /* 1. Dashboard                                                                     */
 /* ================================================================================ */
@@ -171,6 +203,24 @@
   height: auto;
 }
 
+/* Computer (Mac 13-inch to Mac 16-inch) */
+@media only screen and (min-width: 1280px) and (max-width: 3072px) {
+  .recentStatsContainer .background img {
+    width: 100%;
+    height: auto;
+    transform: scaleX(-1) scale(1);
+    opacity: 0.2;
+    position: absolute;
+    z-index: -1;
+    display: none;
+  }
+
+  .currRank,
+  .recentMatchWrapper {
+    padding: 1rem 4rem;
+  }
+}
+
 /* ================================================================================ */
 /* 1. Main Stats                                                                    */
 /* ================================================================================ */
@@ -223,6 +273,30 @@
   padding: 0.5rem 1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.134);
   border-left: 1px solid rgba(255, 255, 255, 0.134);
+}
+
+/* Computer (Mac 13-inch to Mac 16-inch) */
+@media only screen and (min-width: 1280px) and (max-width: 3072px) {
+  .mainStatsContainer {
+    padding: 0 4rem;
+  }
+
+  .mainStatsContainer .mainStats {
+    background: #001322;
+    border-radius: 15px;
+    border-bottom: none;
+    box-shadow: #01182b 0px 0px 11px 1px;
+    position: relative;
+    grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+  }
+
+  .mainStatsContainer .mainStats .item {
+    position: relative;
+    padding: 1.5rem 2rem;
+    width: 100%;
+    border-top: none;
+    border-left: none;
+  }
 }
 
 /* ================================================================================ */
@@ -304,6 +378,27 @@
   left: -2px;
 }
 
+/* Computer (Mac 13-inch to Mac 16-inch) */
+@media only screen and (min-width: 1280px) and (max-width: 3072px) {
+  .topAgentsWrapper {
+    padding: 1rem 4rem;
+  }
+  .agent {
+    display: inline-flex;
+    background: linear-gradient(rgb(230, 73, 73), rgb(223, 112, 112));
+    border-radius: 15px;
+    width: 18%;
+    margin-left: 1rem;
+  }
+  .agent .image img {
+    position: absolute;
+    width: 105%;
+    height: auto;
+    top: 15px;
+    left: -2px;
+  }
+}
+
 /* ================================================================================ */
 /* 3. Top Weapons                                                                   */
 /* ================================================================================ */
@@ -324,6 +419,15 @@
   align-items: flex-start;
   padding: 2rem 1rem 1rem 1rem;
   text-align: left;
+}
+
+/* Computer (Mac 13-inch to Mac 16-inch) */
+@media only screen and (min-width: 1280px) and (max-width: 3072px) {
+  .chartWrapper {
+    padding: 1rem 4rem;
+    height: 450px;
+    min-height: 700px;
+  }
 }
 
 /* ================================================================================ */
@@ -406,6 +510,17 @@
   top: 15px;
   left: -2px;
 } */
+
+/* Computer (Mac 13-inch to Mac 16-inch) */
+@media only screen and (min-width: 1280px) and (max-width: 3072px) {
+  .topAgentsWrapper {
+    padding: 1rem 4rem;
+  }
+  .match {
+    width: 18%;
+    margin-left: 1rem;
+  }
+}
 
 /* ================================================================================ */
 /* 5. Leaderboard                                                                   */
@@ -549,6 +664,37 @@
 
 .leaderboardRow > div > h5 {
   padding-right: 1rem;
+}
+
+/* Computer (Mac 13-inch to Mac 16-inch) */
+@media only screen and (min-width: 1280px) and (max-width: 3072px) {
+  .leaderboardWrapper {
+    padding: 0rem 4rem;
+  }
+
+  .leaderboardWrapper header {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    border-top: 1px solid white;
+  }
+  .leaderboardWrapper header h6:last-of-type {
+    border-top-right-radius: 15px;
+  }
+  .leaderboardRow:last-of-type {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom: 1px solid white;
+  }
+
+  .leaderboardRow {
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+  }
+  .leaderboardRow:last-of-type > div:last-of-type {
+    border-bottom-right-radius: 15px;
+  }
 }
 
 /* ================================================================================ */
@@ -796,6 +942,16 @@
 
 .challenge .text .info > div > span {
   line-height: 25px;
+}
+
+/* Computer (Mac 13-inch to Mac 16-inch) */
+@media only screen and (min-width: 1280px) and (max-width: 3072px) {
+  .challengeWrapper {
+    width: 49%;
+  }
+  .challengeWrapper:first-of-type {
+    margin-left: 0;
+  }
 }
 
 /* ================================================================================ */
