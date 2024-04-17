@@ -28,7 +28,7 @@ export default function RootLayout({
       </head>
       <body className={inter.className} suppressHydrationWarning={true}>
         <ContextProvider>
-          <main style={{height: `${innerHeight}px`}}>{children}</main>
+          <main>{children}</main>
         </ContextProvider>
       </body>
     </html>
