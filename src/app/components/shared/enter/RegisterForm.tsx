@@ -49,7 +49,15 @@ export default function RegisterForm({
           first_name: "",
           remember: false,
         });
-        setGlobalState({...globalState, player: data.player});
+        setGlobalState({
+          ...globalState,
+          player: {
+            id: "string",
+            email: formData.email || "",
+            name: formData.first_name || "",
+            first_name: formData.first_name || "",
+          },
+        });
         Cookies.set("devve_jwt", data.token);
         Cookies.set("devve_refresh_jwt", data.refresh_token);
         router.push("/dashboard");
