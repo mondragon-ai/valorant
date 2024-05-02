@@ -62,7 +62,7 @@ export const RecentMatches = () => {
       className={styles.topAgentsWrapper}
       style={{paddingBottom: "2rem"}}
     >
-      <h5 style={{padding: "2rem 1rem 0 1rem"}}>Recent Matches</h5>
+      <h3 style={{padding: "2rem 1rem 0 1rem"}}>Recent Matches</h3>
       <div className={styles.agentContainer}>
         {recent_matches &&
           recent_matches.map((match, i) => {

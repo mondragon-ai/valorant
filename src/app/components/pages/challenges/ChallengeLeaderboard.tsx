@@ -17,16 +17,6 @@ export const ChallengeLeaderboard = () => {
             height={1000}
           />
         </div>
-        {/* <div >
-          <Image
-            src={
-              "https://i.pinimg.com/originals/3d/fc/5d/3dfc5d8a2fbd83980178e84e9837571c.png"
-            }
-            alt={""}
-            width={1000}
-            height={1000}
-          />
-        </div> */}
         <h4>{leaders[0].player}</h4>
         <h5>{`${leaders[0].kills} / ${leaders[0].deaths}`}</h5>
       </div>

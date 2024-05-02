@@ -17,7 +17,7 @@ export const PageHeader = ({
   const playerName = globalState.player ? globalState.player.name : "";
   return (
     <header className={styles.pageHeader}>
-      <h5>{title}</h5>
+      <h2>{title}</h2>
       <div className={styles.profile}>
         <span>{playerName}</span>
 

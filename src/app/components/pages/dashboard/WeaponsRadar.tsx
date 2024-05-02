@@ -42,7 +42,7 @@ export const WeaponsRadar = () => {
   return (
     <>
       <div className={styles.chartWrapper}>
-        <h5>Top Weapons</h5>
+        <h3>Top Weapons</h3>
         <ResponsiveContainer width="100%" height="100%">
           <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
             <circle cx="50%" cy="50%" r="30%" fill="rgba(0, 0, 0, 0.1)" />

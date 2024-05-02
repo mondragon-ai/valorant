@@ -26,8 +26,8 @@ export default function RecentStats() {
           height={1000}
         />
         <div className={styles.rankTxt}>
-          <span>Current Rating</span>
-          <h5>Radiant</h5>
+          <h6>Current Rating</h6>
+          <h4>Radiant</h4>
         </div>
       </div>
 
@@ -43,16 +43,16 @@ export default function RecentStats() {
             height={1000}
           />
           <div className={styles.item}>
-            <span>K/D/A</span>
-            <h5>18/13/2</h5>
+            <h6>K/D/A</h6>
+            <h4>18/13/2</h4>
           </div>
           <div className={styles.item}>
-            <span>K/D</span>
-            <h5>1.4</h5>
+            <h6>K/D</h6>
+            <h4>1.4</h4>
           </div>
           <div className={styles.item}>
-            <span>Avg Score</span>
-            <h5>420</h5>
+            <h6>Avg Score</h6>
+            <h4>420</h4>
           </div>
         </div>
       </div>

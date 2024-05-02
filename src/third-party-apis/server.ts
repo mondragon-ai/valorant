@@ -25,6 +25,7 @@ export const serverApiRequest = async (
       DEVVE_JWT_REFRESH: jwtRefreshCookie,
     },
   };
+  console.log({options});
 
   if (data) {
     options = {

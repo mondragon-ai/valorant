@@ -147,7 +147,7 @@
   flex-direction: column;
   justify-content: flex-start;
   position: relative;
-  align-items: center;
+  align-items: flex-start;
   padding: 0;
   margin: 0;
   margin-left: 1rem;
@@ -208,6 +208,12 @@
   margin: 0;
   width: 100%;
   height: auto;
+}
+
+.recentMatchContainer .item h6 {
+  color: rgb(196, 196, 196);
+  margin-bottom: 5px;
+  font-weight: 100;
 }
 
 /* Computer (Mac 13-inch to Mac 16-inch) */
@@ -280,6 +286,12 @@
   padding: 0.5rem 1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.134);
   border-left: 1px solid rgba(255, 255, 255, 0.134);
+}
+
+.mainStatsContainer .mainStats .item h6 {
+  color: rgb(196, 196, 196);
+  margin-bottom: 5px;
+  font-weight: 100;
 }
 
 /* Computer (Mac 13-inch to Mac 16-inch) */

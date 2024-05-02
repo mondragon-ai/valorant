@@ -105,30 +105,105 @@ a {
 
 h1 {
   font-family: Arial, sans-serif;
-  font-size: 44px;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: left;
+  color: var(--main-light);
+}
+h2 {
+  font-family: Arial, sans-serif;
+  font-size: 21px;
+  text-align: left;
+  font-weight: bold;
+  color: var(--main-light);
+}
+h3 {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  text-align: left;
   font-weight: bold;
   color: var(--main-light);
 }
 h4 {
   font-family: Arial, sans-serif;
-  font-size: 24px;
+  font-size: 14px;
   font-weight: bold;
+  text-align: left;
   color: var(--main-light);
 }
 h5 {
   font-family: Arial, sans-serif;
-  font-size: 18px;
+  font-size: 12px;
   font-weight: bold;
+  text-align: left;
+  color: var(--main-light);
+}
+h5 {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  text-align: left;
   color: var(--main-light);
 }
 
 a,
 span {
   font-family: Arial, sans-serif;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: bold;
+  text-align: left;
   color: var(--main-grey);
   text-decoration: none;
+}
+
+/* Computer (Mac 13-inch to Mac 16-inch) */
+@media only screen and (min-width: 1280px) and (max-width: 3072px) {
+  h1 {
+    font-family: Arial, sans-serif;
+    font-size: 46px;
+    font-weight: bold;
+    color: var(--main-light);
+  }
+  h2 {
+    font-family: Arial, sans-serif;
+    font-size: 33px;
+    font-weight: bold;
+    color: var(--main-light);
+  }
+  h3 {
+    font-family: Arial, sans-serif;
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--main-light);
+  }
+  h4 {
+    font-family: Arial, sans-serif;
+    font-size: 21px;
+    font-weight: bold;
+    color: var(--main-light);
+  }
+  h5 {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--main-light);
+  }
+  h6 {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--main-light);
+  }
+
+  p,
+  a,
+  span {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--main-grey);
+    text-decoration: none;
+  }
 }
 
 .selectHeader .buttonWrapper .flashSlide {
